@@ -246,12 +246,11 @@ Expressions can be made of the following elements :
 - Real constants : 12.5
 - Operators : "Hello" ~ " " ~ "world !"
 - Function calls : Replace "Hello world !" "world" "you"
+- Inner expressions inside parentheses : ( ... )
 
 The string concatenation operator is "~".
 
 Operator and function arguments are automatically converted to the required parameter type.
-
-Inner expressions and function calls must be put inside parentheses.
 
 ```
 #set x := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
