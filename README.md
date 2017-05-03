@@ -239,18 +239,19 @@ func GetResult( first_integer int, second_integer int, third_integer int, fourth
 
 ### Expressions
 
-Expressions can be made of the following elements :
+An expression can be :
 
-- String constants : "Hello world !\n"
-- Integer constants : -1
-- Real constants : 12.5
-- Operators : "Hello" ~ " " ~ "world !"
-- Function calls : Replace "Hello world !" "world" "you"
-- Inner expressions inside parentheses : ( ... )
+- A string constant : "Hello world !\n"
+- An integer constant : -1
+- A real constant : 12.5
+- An operator call : "Hello" ~ " " ~ "world !"
+- A function call : Replace "Hello world !" "world" "you"
 
 The string concatenation operator is "~".
 
 Operator and function arguments are automatically converted to the required parameter type.
+
+The inner expressions for operator and function arguments must be put inside parentheses.
 
 ```
 #set x := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
