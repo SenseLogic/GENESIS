@@ -441,7 +441,7 @@ dmd genesis.d
 
 ## Author
 
-Eric Pelzer (exstatic.coder@gmail.com).
+Eric Pelzer (ecstatic.coder@gmail.com).
 
 ## License
 
