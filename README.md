@@ -5,7 +5,8 @@ Generic preprocessor for modern programming languages.
 ## Features
 
 * Language agnostic.
-* Complete : multi-token variables and functions, local and global scopes, inclusions, imports, expressions, assignments, conditions, loops, function calls, etc.
+* Multi-token variables and functions with local and global scopes.
+* Inclusions, imports, assignments, expressions, conditions, loops, function calls.
 * Emulates genericity by parametric template instantiation.
 * Allows Allman style for Go code.
 
