@@ -263,13 +263,13 @@ $ : quote the variable value
 Declares a parametric function.
     
 ```cpp
-#define MY_GLOBAL_FUNCTION
+#define! MY_GLOBAL_FUNCTION
     #get _FIRST_NAME_
     #get _LAST_NAME_
     Hello _FIRST_NAME_ _LAST_NAME_
 #end
 
-#define~ MY_LOCAL_FUNCTION
+#define MY_LOCAL_FUNCTION
     #get _FIRST_NAME_
     #get _LAST_NAME_
     Hello _FIRST_NAME_ _LAST_NAME_
@@ -281,8 +281,8 @@ Declares a parametric function.
 Undeclares a parametric function.
     
 ```cpp
-#undefine MY_GLOBAL_FUNCTION
-#undefine~ MY_LOCAL_FUNCTION
+#undefine! MY_GLOBAL_FUNCTION
+#undefine MY_LOCAL_FUNCTION
 ```
 
 #### \#call function \[ , first_argument, second_argument, ... \] 
