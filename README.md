@@ -262,12 +262,8 @@ The inner expressions for operator and function arguments must be put inside par
 #set t := "***" ~ ( Strip ( Replace s "world" "you" ) ) ~ "***"
 ```
 
-Here are the available predefined constants, operators and functions :
+### Operators
 
-* Integer constants :
-  * false true
-* Real constants :
-  * pi
 * Unary operators :
   * ! -
 * Binary operators : 
@@ -275,6 +271,9 @@ Here are the available predefined constants, operators and functions :
   * && || 
   * & | << >> 
   * < <= == != >= >
+  
+### Functions
+
 * Conversion functions : 
   * String Real Integer
 * String functions : 
@@ -288,6 +287,13 @@ Here are the available predefined constants, operators and functions :
   * Ceil Floor Round Trunc Remainder Power Log SquareRoot 
   * Cosinus Sinus Tangent ArcCosinus ArcSinus ArcTangent
 
+### Constants
+
+* Integer constants :
+  * false true
+* Real constants :
+  * pi
+  
 ### Command modifiers
 
 Some commands can be suffixed with one or several modifiers, in the following order.
