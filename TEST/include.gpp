@@ -1,0 +1,40 @@
+#get FIRST_PARAMETER
+#get SECOND_PARAMETER
+#get THIRD_PARAMETER
+#get FOURTH_PARAMETER
+
+#set! THIRD_CONSTANT = FIRST_CONSTANT + SECOND_CONSTANT
+#set FOURTH_CONSTANT = FIRST_CONSTANT - SECOND_CONSTANT
+
+#set PARAMETERS = FIRST_PARAMETER SECOND_PARAMETER "THIRD_PARAMETER" FOURTH_PARAMETER
+#print PARAMETERS
+
+#if FIRST_PARAMETER == "first"
+    FIRST
+    CASE
+    #set MESSAGE = First case ( PARAMETERS )
+#elseif FIRST_PARAMETER == "second"
+    SECOND
+    CASE
+    #set MESSAGE = Second case ( PARAMETERS )
+#elseif FIRST_PARAMETER == "third"
+    THIRD
+    CASE
+    #set MESSAGE = Third case ( PARAMETERS )
+#elseif FIRST_PARAMETER == "fourth"
+    FOURTH
+    CASE
+    #set MESSAGE = Fourth case ( PARAMETERS )
+#else
+    OTHER
+    CASE
+    #set MESSAGE = Other case ( PARAMETERS )
+#end
+
+#set SUM := 1 + 2
+#set! TOTAL := SUM * 2
+
+Parameters : PARAMETERS
+Message : MESSAGE
+Sum : SUM
+Total : TOTAL
