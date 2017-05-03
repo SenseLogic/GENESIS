@@ -247,20 +247,29 @@ An expression can be :
 - An operator call : "Hello" ~ " " ~ "world !"
 - A function call : Replace "Hello world !" "world" "you"
 
-The string concatenation operator is "~".
-
-Operator and function arguments are automatically converted to the required parameter type.
-
-The inner expressions for operator and function arguments must be put inside parentheses.
-
 ```
-#set x := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
+#set r := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
 #set a := 10
 #set b := 2.5
-#set c := ( ( b * 2 ) + ( c - 1 ) ) * 3
-#set s := "    Hello" ~ ( LowerCase "WORLD" ) ~ "    "
-#set t := "***" ~ ( Strip ( Replace s "world" "you" ) ) ~ "***"
+#set c := ( ( a * 2 ) + ( b - 1 ) ) * 3
+#set s := "   Hello " ~ ( LowerCase "WORLD" ) ~ "   "
+#set t := "***" ~ ( LowerCase ( Strip ( Replace $s$ "world" "you" ) ) ) ~ "***"
 ```
+
+### Types
+
+The types of the operator arguments are promoted to the highest argument type.
+
+The types of the function arguments are promoted to the required parameter types.
+
+```
+integer > real > string
+
+#set result = "Result = " ~ 2.5
+#set value = Sinus 1
+```
+
+The inner expressions for operator and function arguments must be put inside parentheses.
 
 ### Operators
 
@@ -271,6 +280,8 @@ The inner expressions for operator and function arguments must be put inside par
   * && || 
   * & | << >> 
   * < <= == != >= >
+
+The string concatenation operator is "~".
   
 ### Functions
 
@@ -279,13 +290,13 @@ The inner expressions for operator and function arguments must be put inside par
 * String functions : 
   * LowerCase UpperCase MinorCase MajorCase SnakeCase CamelCase PascalCase Quote Unquote
   * Strip StripLeft StripRight Replace Index Contains HasPrefix HasSuffix
-* General functions :
-  * Minimum Maximum
-* Numeric functions :
-  * Absolute Random
 * Real functions :
   * Ceil Floor Round Trunc Remainder Power Log SquareRoot 
   * Cosinus Sinus Tangent ArcCosinus ArcSinus ArcTangent
+* Numeric functions :
+  * Absolute Random
+* Generic functions :
+  * Minimum Maximum
 
 ### Constants
 

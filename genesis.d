@@ -1059,67 +1059,6 @@ class EXPRESSION
                 {
                     return new TOKEN( token_array[ 1 ].GetString().endsWith( token_array[ 2 ].GetString() ) );
                 }
-                else if ( token_array[ 0 ].Text == "Minimum"
-                          && token_array.length == 3 )
-                {
-                    if ( token_array[ 1 ].Type == TOKEN_TYPE.String
-                         || token_array[ 2 ].Type == TOKEN_TYPE.String )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetString().min( token_array[ 2 ].GetString() ) );
-                    }
-                    else if ( token_array[ 1 ].Type == TOKEN_TYPE.Real
-                              || token_array[ 2 ].Type == TOKEN_TYPE.Real )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetReal().min( token_array[ 2 ].GetReal() ) );
-                    }
-                    else
-                    {
-                        return new TOKEN( token_array[ 1 ].GetInteger().min( token_array[ 2 ].GetInteger() ) );
-                    }
-                }
-                else if ( token_array[ 0 ].Text == "Maximum"
-                          && token_array.length == 3 )
-                {
-                    if ( token_array[ 1 ].Type == TOKEN_TYPE.String
-                         || token_array[ 2 ].Type == TOKEN_TYPE.String )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetString().max( token_array[ 2 ].GetString() ) );
-                    }
-                    else if ( token_array[ 1 ].Type == TOKEN_TYPE.Real
-                              || token_array[ 2 ].Type == TOKEN_TYPE.Real )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetReal().max( token_array[ 2 ].GetReal() ) );
-                    }
-                    else
-                    {
-                        return new TOKEN( token_array[ 1 ].GetInteger().max( token_array[ 2 ].GetInteger() ) );
-                    }
-                }
-                else if ( token_array[ 0 ].Text == "Absolute"
-                          && token_array.length == 2 )
-                {
-                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetInteger().abs() );
-                    }
-                    else
-                    {
-                        return new TOKEN( token_array[ 1 ].GetReal().abs() );
-                    }
-                }
-                else if ( token_array[ 0 ].Text == "Random"
-                          && token_array.length == 3 )
-                {
-                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer
-                              && token_array[ 2 ].Type == TOKEN_TYPE.Integer )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetInteger().uniform( token_array[ 2 ].GetInteger() ) );
-                    }
-                    else
-                    {
-                        return new TOKEN( token_array[ 1 ].GetReal().uniform( token_array[ 2 ].GetReal() ) );
-                    }
-                }
                 else if ( token_array[ 0 ].Text == "Ceil"
                           && token_array.length == 2 )
                 {
@@ -1195,6 +1134,67 @@ class EXPRESSION
                 {
                     return new TOKEN( token_array[ 1 ].GetReal().atan2( token_array[ 2 ].GetReal() ) );
                 }
+                else if ( token_array[ 0 ].Text == "Absolute"
+                          && token_array.length == 2 )
+                {
+                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetInteger().abs() );
+                    }
+                    else
+                    {
+                        return new TOKEN( token_array[ 1 ].GetReal().abs() );
+                    }
+                }
+                else if ( token_array[ 0 ].Text == "Random"
+                          && token_array.length == 3 )
+                {
+                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer
+                              && token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetInteger().uniform( token_array[ 2 ].GetInteger() ) );
+                    }
+                    else
+                    {
+                        return new TOKEN( token_array[ 1 ].GetReal().uniform( token_array[ 2 ].GetReal() ) );
+                    }
+                }
+                else if ( token_array[ 0 ].Text == "Minimum"
+                          && token_array.length == 3 )
+                {
+                    if ( token_array[ 1 ].Type == TOKEN_TYPE.String
+                         || token_array[ 2 ].Type == TOKEN_TYPE.String )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetString().min( token_array[ 2 ].GetString() ) );
+                    }
+                    else if ( token_array[ 1 ].Type == TOKEN_TYPE.Real
+                              || token_array[ 2 ].Type == TOKEN_TYPE.Real )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetReal().min( token_array[ 2 ].GetReal() ) );
+                    }
+                    else
+                    {
+                        return new TOKEN( token_array[ 1 ].GetInteger().min( token_array[ 2 ].GetInteger() ) );
+                    }
+                }
+                else if ( token_array[ 0 ].Text == "Maximum"
+                          && token_array.length == 3 )
+                {
+                    if ( token_array[ 1 ].Type == TOKEN_TYPE.String
+                         || token_array[ 2 ].Type == TOKEN_TYPE.String )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetString().max( token_array[ 2 ].GetString() ) );
+                    }
+                    else if ( token_array[ 1 ].Type == TOKEN_TYPE.Real
+                              || token_array[ 2 ].Type == TOKEN_TYPE.Real )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetReal().max( token_array[ 2 ].GetReal() ) );
+                    }
+                    else
+                    {
+                        return new TOKEN( token_array[ 1 ].GetInteger().max( token_array[ 2 ].GetInteger() ) );
+                    }
+                }
                 else
                 {
                     Abort( "Bad function call : ", token_array[ 0 ].Text );
@@ -1211,50 +1211,50 @@ class EXPRESSION
                     }
                     else if ( token_array[ 1 ].Text == "+" )
                     {
-                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                             || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                             || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() + token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() + token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() + token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() + token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "-" )
                     {
-                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                             || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                             || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() - token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() - token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() - token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() - token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "*" )
                     {
-                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                             || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                             || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() * token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() * token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() * token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() * token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "/" )
                     {
-                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                             || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                             || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() / token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() / token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() / token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() / token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "%" )
@@ -1292,14 +1292,14 @@ class EXPRESSION
                         {
                             result_token = new TOKEN( token_array[ 0 ].GetString() < token_array[ 2 ].GetString() );
                         }
-                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                                  || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                                  || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() < token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() < token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() < token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() < token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "<=" )
@@ -1309,14 +1309,14 @@ class EXPRESSION
                         {
                             result_token = new TOKEN( token_array[ 0 ].GetString() <= token_array[ 2 ].GetString() );
                         }
-                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                                  || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                                  || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() <= token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() <= token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() <= token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() <= token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "==" )
@@ -1326,14 +1326,14 @@ class EXPRESSION
                         {
                             result_token = new TOKEN( token_array[ 0 ].GetString() == token_array[ 2 ].GetString() );
                         }
-                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                                  || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                                  || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() == token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() == token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() == token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() == token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == "!=" )
@@ -1343,14 +1343,14 @@ class EXPRESSION
                         {
                             result_token = new TOKEN( token_array[ 0 ].GetString() != token_array[ 2 ].GetString() );
                         }
-                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                                  || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                                  || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() != token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() != token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() != token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() != token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == ">=" )
@@ -1360,14 +1360,14 @@ class EXPRESSION
                         {
                             result_token = new TOKEN( token_array[ 0 ].GetString() >= token_array[ 2 ].GetString() );
                         }
-                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                                  || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                                  || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() >= token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() >= token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() >= token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() >= token_array[ 2 ].GetInteger() );
                         }
                     }
                     else if ( token_array[ 1 ].Text == ">" )
@@ -1377,14 +1377,14 @@ class EXPRESSION
                         {
                             result_token = new TOKEN( token_array[ 0 ].GetString() > token_array[ 2 ].GetString() );
                         }
-                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Integer
-                                  || token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                        else if ( token_array[ 0 ].Type == TOKEN_TYPE.Real
+                                  || token_array[ 2 ].Type == TOKEN_TYPE.Real )
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetInteger() > token_array[ 2 ].GetInteger() );
+                            result_token = new TOKEN( token_array[ 0 ].GetReal() > token_array[ 2 ].GetReal() );
                         }
                         else
                         {
-                            result_token = new TOKEN( token_array[ 0 ].GetReal() > token_array[ 2 ].GetReal() );
+                            result_token = new TOKEN( token_array[ 0 ].GetInteger() > token_array[ 2 ].GetInteger() );
                         }
                     }
                     else
