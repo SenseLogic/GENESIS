@@ -969,6 +969,11 @@ class EXPRESSION
                 {
                     return new TOKEN( token_array[ 1 ].ToReal() );
                 }
+                else if ( token_array[ 0 ].Text == "Integer"
+                          && token_array.length == 2 )
+                {
+                    return new TOKEN( token_array[ 1 ].ToInteger() );
+                }
                 else if ( token_array[ 0 ].Text == "LowerCase"
                           && token_array.length == 2 )
                 {
@@ -1014,11 +1019,6 @@ class EXPRESSION
                 {
                     return new TOKEN( token_array[ 1 ].GetString().toUnquoted() );
                 }
-                else if ( token_array[ 0 ].Text == "Integer"
-                          && token_array.length == 2 )
-                {
-                    return new TOKEN( token_array[ 1 ].ToInteger() );
-                }
                 else if ( token_array[ 0 ].Text == "Strip"
                           && token_array.length == 2 )
                 {
@@ -1059,18 +1059,6 @@ class EXPRESSION
                 {
                     return new TOKEN( token_array[ 1 ].GetString().endsWith( token_array[ 2 ].GetString() ) );
                 }
-                else if ( token_array[ 0 ].Text == "Absolute"
-                          && token_array.length == 2 )
-                {
-                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetInteger().abs() );
-                    }
-                    else
-                    {
-                        return new TOKEN( token_array[ 1 ].GetReal().abs() );
-                    }
-                }
                 else if ( token_array[ 0 ].Text == "Minimum"
                           && token_array.length == 3 )
                 {
@@ -1105,6 +1093,31 @@ class EXPRESSION
                     else
                     {
                         return new TOKEN( token_array[ 1 ].GetInteger().max( token_array[ 2 ].GetInteger() ) );
+                    }
+                }
+                else if ( token_array[ 0 ].Text == "Absolute"
+                          && token_array.length == 2 )
+                {
+                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetInteger().abs() );
+                    }
+                    else
+                    {
+                        return new TOKEN( token_array[ 1 ].GetReal().abs() );
+                    }
+                }
+                else if ( token_array[ 0 ].Text == "Random"
+                          && token_array.length == 3 )
+                {
+                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer
+                              && token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                    {
+                        return new TOKEN( token_array[ 1 ].GetInteger().uniform( token_array[ 2 ].GetInteger() ) );
+                    }
+                    else
+                    {
+                        return new TOKEN( token_array[ 1 ].GetReal().uniform( token_array[ 2 ].GetReal() ) );
                     }
                 }
                 else if ( token_array[ 0 ].Text == "Ceil"
@@ -1181,19 +1194,6 @@ class EXPRESSION
                           && token_array.length == 3 )
                 {
                     return new TOKEN( token_array[ 1 ].GetReal().atan2( token_array[ 2 ].GetReal() ) );
-                }
-                else if ( token_array[ 0 ].Text == "Random"
-                          && token_array.length == 3 )
-                {
-                    if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer
-                              && token_array[ 2 ].Type == TOKEN_TYPE.Integer )
-                    {
-                        return new TOKEN( token_array[ 1 ].GetInteger().uniform( token_array[ 2 ].GetInteger() ) );
-                    }
-                    else
-                    {
-                        return new TOKEN( token_array[ 1 ].GetReal().uniform( token_array[ 2 ].GetReal() ) );
-                    }
                 }
                 else
                 {

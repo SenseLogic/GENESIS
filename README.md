@@ -5,6 +5,7 @@ Generic preprocessor for modern programming languages.
 ## Motivation
 
 Add the following features to JavaScript, Go and other alike languages :
+
 * A powerful C-like preprocessor, with multi-token variables and functions, local and global scopes, inclusions, imports, assignments, expressions, conditions, loops and function calls.
 * Allman style conversion into K&R style.
 * Generic types through multi-token parametric instantiation.
@@ -236,6 +237,57 @@ func GetResult( first_integer int, second_integer int, third_integer int, fourth
 
 ## Syntax
 
+### Expressions
+
+Expressions can be made of the following elements :
+
+- String constants : "Hello world !\n"
+- Integer constants : -1
+- Real constants : 12.5
+- Operators : "Hello" ~ " " ~ "world !"
+- Function calls : Replace "Hello world !" "world" "you"
+
+The string concatenation operator is "~".
+
+Operator and function arguments are automatically converted to the required parameter type.
+
+Inner expressions and function calls must be put inside parentheses.
+
+```
+#set x := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
+#set a := 10
+#set b := 2.5
+#set c := ( ( b * 2 ) + ( c - 1 ) ) * 3
+#set s := "    Hello" ~ ( LowerCase "WORLD" ) ~ "    "
+#set t := "***" ~ ( Strip ( Replace s "world" "you" ) ) ~ "***"
+```
+
+Here are the available predefined constants, operators and functions :
+
+* Integer constants :
+  * false true
+* Real constants :
+  * pi
+* Unary operators :
+  * ! -
+* Binary operators : 
+  * ~ + - * / %
+  * && || 
+  * & | << >> 
+  * < <= == != >= >
+* Conversion functions : 
+  * String Real Integer
+* String functions : 
+  * LowerCase UpperCase MinorCase MajorCase SnakeCase CamelCase PascalCase Quote Unquote
+  * Strip StripLeft StripRight Replace Index Contains HasPrefix HasSuffix
+* General functions :
+  * Minimum Maximum
+* Numeric functions :
+  * Absolute Random
+* Real functions :
+  * Ceil Floor Round Trunc Remainder Power Log SquareRoot 
+  * Cosinus Sinus Tangent ArcCosinus ArcSinus ArcTangent
+
 ### Command modifiers
 
 Some commands can be suffixed with one or several modifiers, in the following order.
@@ -344,7 +396,7 @@ and are replaced before global variables and definitions.
 ```cpp
 #set! GLOBAL_VARIABLE = The definition of a global variable
 #set LOCAL_VARIABLE = The definition of a local variable
-#set EVALUATED_VARIABLE := "GLOBAL_VARIABLE".toUpperCase() + "LOCAL_VARIABLE".toLowerCase()
+#set EVALUATED_VARIABLE := ( UpperCase "GLOBAL_VARIABLE" ) ~ ( LowerCase "LOCAL_VARIABLE" )
 #set* REPLACED_VARIABLE = The definition of a local variable replaced inside identifiers
 #set VARIABLE_NAME = QUOTED_UNREPLACED_VARIABLE
 #set VARIABLE_NAME @$#= GLOBAL_VARIABLE is not replaced here
@@ -370,7 +422,7 @@ Removes a variable.
 Executes a conditional block.
 
 ```cpp
-#if SECOND_ARGUMENT + THIRD_ARGUMENT == "Text10"
+#if ( SECOND_ARGUMENT ~ THIRD_ARGUMENT ) == "Text10"
     ...
 #elseif "FIRST_ARGUMENT" == "Type"
     ...
