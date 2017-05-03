@@ -1,6 +1,6 @@
 # Genesis
 
-Generic preprocessor for modern C-like languages.
+Generic preprocessor for modern programming languages.
 
 ## Features
 
