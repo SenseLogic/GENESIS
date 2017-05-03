@@ -247,6 +247,8 @@ An expression can be :
 - An operator call : "Hello" ~ " " ~ "world !"
 - A function call : Replace "Hello world !" "world" "you"
 
+Operator and function arguments can also be expressions if they are put inside parentheses.
+
 ```
 #set r := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
 #set a := 10
@@ -268,8 +270,6 @@ integer > real > string
 #set result = "Result = " ~ 2.5
 #set value = Sinus 1
 ```
-
-The inner expressions for operator and function arguments must be put inside parentheses.
 
 ### Operators
 
