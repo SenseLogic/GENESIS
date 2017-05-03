@@ -2,9 +2,9 @@
 
 Generic preprocessor for modern programming languages.
 
-## Features
+## Motivation
 
-Adds the following features to JavaScript, Go and other alike languages :
+Add the following features to JavaScript, Go and other alike languages :
 * A powerful C-like preprocessor, with multi-token variables and functions, local and global scopes, inclusions, imports, assignments, expressions, conditions, loops and function calls.
 * Allman style conversion into K&R style.
 * Generic types through multi-token parametric instantiation.
