@@ -173,15 +173,15 @@ string toQuoted(
         character_index;
     string
         quoted_text;
-        
+
     quoted_text = "\"";
-        
+
     for ( character_index = 0;
           character_index < text.length;
           ++character_index )
     {
         character = text[ character_index ];
-        
+
         if ( character == '\"' )
         {
             quoted_text ~= "\\\"";
@@ -203,9 +203,9 @@ string toQuoted(
             quoted_text ~= character;
         }
     }
-    
+
     quoted_text ~= "\"";
-    
+
     return quoted_text;
 }
 
@@ -221,18 +221,18 @@ string toUnquoted(
         character_index;
     string
         unquoted_text;
-        
+
     for ( character_index = 0;
           character_index < text.length;
           ++character_index )
     {
         character = text[ character_index ];
-        
+
         if ( character == '\\'
              && character_index + 1 < text.length )
         {
             character = text[ character_index ];
-        
+
             if ( character == 'r' )
             {
                 unquoted_text ~= '\r';
@@ -249,7 +249,7 @@ string toUnquoted(
             {
                 unquoted_text ~= character;
             }
-            
+
             ++character_index;
         }
         else
@@ -257,7 +257,7 @@ string toUnquoted(
             unquoted_text ~= character;
         }
     }
-    
+
     return unquoted_text;
 }
 
@@ -506,9 +506,9 @@ class TOKEN
     {
         Type = TOKEN_TYPE.None;
     }
-        
+
     // ~~
-        
+
     this(
         string text
         )
@@ -516,9 +516,9 @@ class TOKEN
         Type = TOKEN_TYPE.String;
         Text = text;
     }
-    
+
     // ~~
-        
+
     this(
         double real_
         )
@@ -526,9 +526,9 @@ class TOKEN
         Type = TOKEN_TYPE.Real;
         Real = real_;
     }
-    
+
     // ~~
-        
+
     this(
         long integer
         )
@@ -536,9 +536,9 @@ class TOKEN
         Type = TOKEN_TYPE.Integer;
         Integer = integer;
     }
-    
+
     // ~~
-        
+
     this(
         bool boolean
         )
@@ -546,9 +546,9 @@ class TOKEN
         Type = TOKEN_TYPE.Integer;
         Integer = boolean ? 1 : 0;
     }
-    
+
     // -- INQUIRIES
-    
+
     string GetString(
         )
     {
@@ -571,9 +571,9 @@ class TOKEN
             return "";
         }
     }
-    
+
     // ~~
-    
+
     double GetReal(
         )
     {
@@ -592,9 +592,9 @@ class TOKEN
             return 0.0;
         }
     }
-    
+
     // ~~
-    
+
     long GetInteger(
         )
     {
@@ -609,9 +609,9 @@ class TOKEN
             return 0;
         }
     }
-    
+
     // ~~
-    
+
     string ToString(
         )
     {
@@ -630,7 +630,7 @@ class TOKEN
     }
 
     // ~~
-    
+
     double ToReal(
         )
     {
@@ -647,9 +647,9 @@ class TOKEN
             return Text.to!double();
         }
     }
-    
+
     // ~~
-    
+
     long ToInteger(
         )
     {
@@ -748,14 +748,14 @@ class EXPRESSION
         }
         else
         {
-            Abort( "Bad result", token_array.GetText() );
+            Abort( "Invalid result", token_array.GetText() );
 
             return null;
         }
     }
 
     // -- OPERATIONS
-        
+
     void SetText(
         string text
         )
@@ -786,7 +786,7 @@ class EXPRESSION
             {
                 character = 0;
             }
-            
+
             if ( character_index + 1 < text.length )
             {
                 next_character = text[ character_index + 1 ];
@@ -795,7 +795,7 @@ class EXPRESSION
             {
                 next_character = 0;
             }
-            
+
             if ( token !is null )
             {
                 if ( token.Type == TOKEN_TYPE.String )
@@ -859,11 +859,11 @@ class EXPRESSION
                             token.Real = PI;
                         }
                     }
-                    
+
                     token = null;
                 }
             }
-            
+
             if ( token is null
                  && character != ' '
                  && character != '\t'
@@ -879,7 +879,7 @@ class EXPRESSION
                     delimiter_character = character;
                 }
                 else if ( isDigit( character )
-                          || ( character == '-' 
+                          || ( character == '-'
                                && isDigit( next_character ) ) )
                 {
                     token.Type = TOKEN_TYPE.Integer;
@@ -921,9 +921,9 @@ class EXPRESSION
             }
         }
     }
-    
+
     // ~~
-    
+
     TOKEN Evaluate(
         TOKEN[] token_array
         )
@@ -954,7 +954,7 @@ class EXPRESSION
                 }
                 else
                 {
-                    Abort( "Bad unary operator call : ", token_array[ 0 ].Text );
+                    Abort( "Invalid unary operator call : ", token_array[ 0 ].Text );
                 }
             }
             else if ( token_array[ 0 ].Type == TOKEN_TYPE.Identifier )
@@ -1197,10 +1197,10 @@ class EXPRESSION
                 }
                 else
                 {
-                    Abort( "Bad function call : ", token_array[ 0 ].Text );
+                    Abort( "Invalid function call : ", token_array[ 0 ].Text );
                 }
             }
-            else 
+            else
             {
                 while ( token_array.length >= 3
                         && token_array[ 1 ].Type == TOKEN_TYPE.Operator )
@@ -1389,7 +1389,7 @@ class EXPRESSION
                     }
                     else
                     {
-                        Abort( "Bad binary operator call : ", token_array[ 1 ].Text );
+                        Abort( "Invalid binary operator call : ", token_array[ 1 ].Text );
                     }
 
                     token_array = result_token ~ token_array[ 3 .. $ ];
@@ -1398,14 +1398,14 @@ class EXPRESSION
         }
         else
         {
-            Abort( "Bad expression", token_array.GetText() );
+            Abort( "Invalid expression", token_array.GetText() );
         }
 
         return GetResult( token_array );
     }
-    
+
     // ~~
-    
+
     TOKEN Evaluate(
         )
     {
@@ -1415,12 +1415,12 @@ class EXPRESSION
             token_index;
         TOKEN
             token;
-        
+
         while ( TokenArray.length > 1 )
         {
             first_token_index = -1;
             last_token_index = -1;
-            
+
             for ( token_index = 0;
                   token_index < TokenArray.length;
                   ++token_index )
@@ -1438,12 +1438,12 @@ class EXPRESSION
                     break;
                 }
             }
-            
+
             if ( first_token_index < last_token_index )
             {
                 token = Evaluate( TokenArray[ first_token_index + 1 .. last_token_index ] );
-                
-                TokenArray 
+
+                TokenArray
                     = TokenArray[ 0 .. first_token_index ]
                       ~ token
                       ~ TokenArray[ last_token_index + 1 .. $ ];
@@ -1469,9 +1469,9 @@ class VARIABLE
         Value;
     bool
         ItIsIdentifier;
-    
+
     // -- CONSTRUCTORS
-        
+
     this(
         string name,
         string value,
@@ -1482,9 +1482,9 @@ class VARIABLE
         Value = value;
         ItIsIdentifier = it_is_identifier;
     }
-    
+
     // -- INQUIRIES
-    
+
     string ReplaceVariableName(
         string text
         )
@@ -1497,7 +1497,7 @@ class VARIABLE
             variable_character_index;
         string
             old_text;
-            
+
         do
         {
             old_text = text;
@@ -1618,7 +1618,7 @@ class CONTEXT
         DefinitionMap;
 
     // -- INQUIRIES
-        
+
     string ReplaceVariableNames(
         string text
         )
@@ -1664,9 +1664,9 @@ class CONTEXT
     {
         VARIABLE *
             variable;
-            
+
         variable = variable_name in VariableMap;
-        
+
         if ( variable !is null )
         {
             return *variable;
@@ -1689,9 +1689,9 @@ class CONTEXT
     {
         DEFINITION *
             definition;
-            
+
         definition = definition_name in DefinitionMap;
-        
+
         if ( definition !is null )
         {
             return *definition;
@@ -2882,7 +2882,7 @@ bool CheckArguments(
         {
             FatalOptionIsEnabled = true;
         }
-        else 
+        else
         {
             Abort( "Invalid option : " ~ option );
 
@@ -2897,14 +2897,14 @@ bool CheckArguments(
 
     InputFolderPath = GetNormalizedPath( InputFolderPath );
     OutputFolderPath = GetNormalizedPath( OutputFolderPath );
-    
+
     if ( argument_array.length != 2 )
     {
         Abort( "Invalid arguments" );
 
         return false;
     }
-    
+
     InputExtension = argument_array[ 0 ];
     OutputExtension = argument_array[ 1 ];
 
@@ -2933,7 +2933,8 @@ void main(
         writeln( "    --verbose" );
         writeln( "    --debug" );
         writeln( "    --fatal" );
-        writeln( "Sample :" );
+        writeln( "Examples :" );
+        writeln( "    genesis .jp .js" );
         writeln( "    genesis --recursive --join_lines .gp .go" );
     }
 }

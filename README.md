@@ -10,41 +10,14 @@ Add the following features to JavaScript, Go and other alike languages :
 * Allman style conversion into K&R style.
 * Generic types through multi-token parametric instantiation.
 
-## Command line
-
-genesis [options] {input_extension} {output_extension}
-
-### Options
-``` 
-    --input_filter * : only include files with names matching this filter (anything by default)
-    --input_folder . : input folder (current folder by default)
-    --output_folder = : output folder (same as input_folder by default)
-    --recursive : also process sub folders
-    --join_lines : join source code lines written in Allman style
-    --verbose : show the processing messages
-    --debug : show the debugging messages
-    --fatal : abort execution in case of an error
-``` 
-### Examples
-
-Read all ".jp" files in the current directory, and convert them into preprocessed ".js" files.
-
-```bash
-genesis .jp .js
-```
-
-Recursively read all ".gp" files in the current directory, and convert them into preprocessed ".go" files with joined lines.
-
-```bash
-genesis --recursive --join_lines .gp .go
-```
-
-## Features
+## Syntax
 
 ### Variables 
 
 Variables are replaced inside strings and comments, but not inside identifiers, 
 unless they are surrounded by "@" characters or defined with a '#set*' directive.
+
+Variables surrounded by "$" characters are double-quoted and escaped ("\n", "\t", etc).
     
 ```cpp
 // test.gp
@@ -61,182 +34,6 @@ BLABLA "MY BLABLA NAME" MYXXXNAME MYBLABLANAME    // BLABLA
 BLABLA "MY BLABLA NAME" MYBLABLANAME MYBLABLANAME    // BLABLA
 ```
 
-### Parametric definitions
-
-```cpp
-#define! MakeStack
-    #get _ELEMENT_
-    
-    #set _ELEMENT_STACK_ = @_Element_@_STACK
-    #set _Element_ := "_ELEMENT_".toPascalCase()
-    #set _ElementArray_ = @_Element_@Array
-    
-    type _ELEMENT_STACK_ struct
-    {
-        _ElementArray_ [] * _Element_;
-    }
-    
-    func ( self * _ELEMENT_STACK_ ) Push@_Element_@(
-        element * _Element_
-        )
-    {
-        _ElementArray_ = append( _ElementArray_, element )
-    }
-    
-    func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
-        ) * _ELEMENT_
-    {
-        var element * _ELEMENT_;
-        
-        element = _ElementArray_[ len( _ElementArray_ ) - 1 ];
-        
-        _ElementArray_ = _ElementArray_[ : len( _ElementArray_ ) - 1 ];
-        
-        return element; 
-    }
-    
-    #set! STACK[ _Element_ ] @= _ELEMENT_STACK_
-#end
-
-#call MakeStack, ENTITY
-
-var entity_stack STACK[ ENTITY ];
-...
-stack.PushEntity( entity );
-```
-
-### Parametric inclusions
-
-```cpp
-// stack.gpp
-
-#get _ELEMENT_
-
-#set _ELEMENT_STACK_ = @_Element_@_STACK
-#set _Element_ ?= "_ELEMENT_".toPascalCase()
-#set _ElementArray_ = @_Element_@Array
-
-type _ELEMENT_STACK_ struct
-{
-    _ElementArray_ [] * _Element_;
-}
-
-func ( self * _ELEMENT_STACK_ ) Push@_Element_@(
-    element * _Element_
-    )
-{
-    _ElementArray_ = append( _ElementArray_, element )
-}
-
-func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
-    ) * _ELEMENT_
-{
-    var element * _ELEMENT_;
-    
-    element = _ElementArray_[ len( _ElementArray_ ) - 1 ];
-    
-    _ElementArray_ = _ElementArray_[ : len( _ElementArray_ ) - 1 ];
-    
-    return element; 
-}
-
-#set! STACK[ _Element_ ] @= _ELEMENT_STACK_
-
-// main.gp
-
-#include stack.gpp, ENTITY
-...
-var entity_stack STACK[ ENTITY ];
-...
-entity_stack.PushElement( entity );
-
-```
-
-### Conditions
-
-```cpp
-#set PLATFORM = "linux"
-
-#if PLATFORM == "linux"
-    ...
-#elseif PLATFORM == "windows"
-    ...
-#elseif PLATFORM == "macos"
-    ...
-#elseif PLATFORM == "ios"
-    ...
-#elseif PLATFORM == "android"
-    ...
-#else
-    #error Unknown platform : PLATFORM
-#end
-```
-
-### Loops
-
-```cpp
-#set INDEX = 0
-#set SUM = 0
-
-#while INDEX < 10
-    #set INDEX := INDEX + 1
-    #set SUM := SUM + INDEX
-    #print INDEX
-    #print SUM
-    INDEX : SUM
-#end
-
-#print INDEX
-#print SUM
-```
-    
-### Allman style conversion
-
-```go
-func GetResult(
-    first_integer int,
-    second_integer int,
-    third_integer int,
-    fourth_integer int
-    ) ( result int )
-{
-    if first_integer == second_integer
-       || ( first_integer < second_integer
-            && first_integer > 10
-            && second_integer < 20 )
-       || ( first_integer > second_integer
-            && first_integer > 10
-            && second_integer < 20 )
-    {
-        result
-            = GetResult(
-                  first_integer * second_integer,
-                  second_integer * third_integer,
-                  third_integer * fourth_integer,
-                  fourth_integer * first_integer
-                  );
-    }
-    else
-    {
-        result = 0;
-    }
-    
-    return;
-}
-
-func GetResult( first_integer int, second_integer int, third_integer int, fourth_integer int ) ( result int ) {
-    if first_integer == second_integer || ( first_integer < second_integer && first_integer > 10 && second_integer < 20 ) || ( first_integer > second_integer && first_integer > 10 && second_integer < 20 ) {
-        result = GetResult( first_integer * second_integer, second_integer * third_integer, third_integer * fourth_integer, fourth_integer * first_integer );
-    } else {
-        result = 0;
-    }
-
-    return;
-}
-```
-
-## Syntax
-
 ### Expressions
 
 An expression can be :
@@ -247,7 +44,7 @@ An expression can be :
 - An operator call : "Hello" ~ " " ~ "world !"
 - A function call : Replace "Hello world !" "world" "you"
 
-Operator and function arguments can also be expressions if they are put inside parentheses.
+Operator and function arguments can also be operator and function calls if they are put inside parentheses.
 
 ```
 #set r := "The result is : " ~ ( ( 1 + ( SquareRoot 4 ) ) * 0.5 )
@@ -271,7 +68,7 @@ integer > real > string
 #set value = Sinus 1
 ```
 
-### Operators
+### Expression operators
 
 * Unary operators :
   * ! -
@@ -283,7 +80,7 @@ integer > real > string
 
 The string concatenation operator is "~".
   
-### Functions
+### Expression functions
 
 * Conversion functions : 
   * String Real Integer
@@ -298,7 +95,7 @@ The string concatenation operator is "~".
 * Generic functions :
   * Minimum Maximum
 
-### Constants
+### Expression constants
 
 * Integer constants :
   * false true
@@ -439,6 +236,16 @@ Removes a variable.
 Executes a conditional block.
 
 ```cpp
+#set PLATFORM = "linux"
+
+#if PLATFORM == "linux"
+    ...
+#elseif PLATFORM == "windows"
+    ...
+#else
+    #error Unknown platform : PLATFORM
+#end
+
 #if ( SECOND_ARGUMENT ~ THIRD_ARGUMENT ) == "Text10"
     ...
 #elseif "FIRST_ARGUMENT" == "Type"
@@ -469,8 +276,9 @@ Repeats a conditional block
 
 #while INDEX < COUNT
     #set PRODUCT := INDEX * FACTOR
-    // INDEX * FACTOR = PRODUCT
     #set INDEX := INDEX + 1
+    #print INDEX * FACTOR = SUM
+    INDEX * FACTOR = SUM
 #end
 ```
 
@@ -490,9 +298,145 @@ Aborts preprocessing.
 #abort Some error message
 ```
 
-## Version
+## Samples
 
-0.1
+### Parametric definitions
+
+```cpp
+#define! MakeStack
+    #get _ELEMENT_
+    
+    #set _ELEMENT_STACK_ = @_Element_@_STACK
+    #set _Element_ := "_ELEMENT_".toPascalCase()
+    #set _ElementArray_ = @_Element_@Array
+    
+    type _ELEMENT_STACK_ struct
+    {
+        _ElementArray_ [] * _Element_;
+    }
+    
+    func ( self * _ELEMENT_STACK_ ) Push@_Element_@(
+        element * _Element_
+        )
+    {
+        _ElementArray_ = append( _ElementArray_, element )
+    }
+    
+    func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
+        ) * _ELEMENT_
+    {
+        var element * _ELEMENT_;
+        
+        element = _ElementArray_[ len( _ElementArray_ ) - 1 ];
+        
+        _ElementArray_ = _ElementArray_[ : len( _ElementArray_ ) - 1 ];
+        
+        return element; 
+    }
+    
+    #set! STACK[ _Element_ ] @= _ELEMENT_STACK_
+#end
+
+#call MakeStack, ENTITY
+
+var entity_stack STACK[ ENTITY ];
+...
+stack.PushEntity( entity );
+```
+
+### Parametric inclusions
+
+```cpp
+// stack.gpp
+
+#get _ELEMENT_
+
+#set _ELEMENT_STACK_ = @_Element_@_STACK
+#set _Element_ ?= "_ELEMENT_".toPascalCase()
+#set _ElementArray_ = @_Element_@Array
+
+type _ELEMENT_STACK_ struct
+{
+    _ElementArray_ [] * _Element_;
+}
+
+func ( self * _ELEMENT_STACK_ ) Push@_Element_@(
+    element * _Element_
+    )
+{
+    _ElementArray_ = append( _ElementArray_, element )
+}
+
+func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
+    ) * _ELEMENT_
+{
+    var element * _ELEMENT_;
+    
+    element = _ElementArray_[ len( _ElementArray_ ) - 1 ];
+    
+    _ElementArray_ = _ElementArray_[ : len( _ElementArray_ ) - 1 ];
+    
+    return element; 
+}
+
+#set! STACK[ _Element_ ] @= _ELEMENT_STACK_
+
+// main.gp
+
+#include stack.gpp, ENTITY
+...
+var entity_stack STACK[ ENTITY ];
+...
+entity_stack.PushElement( entity );
+
+```
+
+### Allman style conversion
+
+Genesis can convert Allman style code into K&R style code.
+
+```go
+func GetResult(
+    first_integer int,
+    second_integer int,
+    third_integer int,
+    fourth_integer int
+    ) ( result int )
+{
+    if first_integer == second_integer
+       || ( first_integer < second_integer
+            && first_integer > 10
+            && second_integer < 20 )
+       || ( first_integer > second_integer
+            && first_integer > 10
+            && second_integer < 20 )
+    {
+        result
+            = GetResult(
+                  first_integer * second_integer,
+                  second_integer * third_integer,
+                  third_integer * fourth_integer,
+                  fourth_integer * first_integer
+                  );
+    }
+    else
+    {
+        result = 0;
+    }
+    
+    return;
+}
+
+func GetResult( first_integer int, second_integer int, third_integer int, fourth_integer int ) ( result int ) {
+    if first_integer == second_integer || ( first_integer < second_integer && first_integer > 10 && second_integer < 20 ) || ( first_integer > second_integer && first_integer > 10 && second_integer < 20 ) {
+        result = GetResult( first_integer * second_integer, second_integer * third_integer, third_integer * fourth_integer, fourth_integer * first_integer );
+    } else {
+        result = 0;
+    }
+
+    return;
+}
+```
 
 ## Installation
 
@@ -502,6 +446,35 @@ Build the executable with the following command line :
 
 ```bash
 dmd genesis.d
+```
+
+## Command line
+
+genesis [options] {input_extension} {output_extension}
+
+### Options
+``` 
+--input_filter * : only include files with names matching this filter (anything by default)
+--input_folder . : input folder (current folder by default)
+--output_folder = : output folder (same as input_folder by default)
+--recursive : also process sub folders
+--join_lines : join source code lines written in Allman style
+--verbose : show the processing messages
+--debug : show the debugging messages
+--fatal : abort execution in case of an error
+``` 
+### Examples
+
+Read all ".jp" files in the current directory, and convert them into preprocessed ".js" files.
+
+```bash
+genesis .jp .js
+```
+
+Recursively read all ".gp" files in the current directory, and convert them into preprocessed ".go" files with joined lines.
+
+```bash
+genesis --recursive --join_lines .gp .go
 ```
 
 ## Version
