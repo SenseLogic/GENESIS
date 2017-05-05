@@ -298,9 +298,9 @@ Aborts preprocessing.
 #abort Some error message
 ```
 
-## Samples
+## Use cases
 
-### Parametric definitions
+### Parametric type definition
 
 ```cpp
 #define! MakeStack
@@ -344,7 +344,7 @@ var entity_stack STACK[ ENTITY ];
 stack.PushEntity( entity );
 ```
 
-### Parametric inclusions
+### Parametric type inclusion
 
 ```cpp
 // stack.gpp
@@ -387,13 +387,15 @@ func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
 ...
 var entity_stack STACK[ ENTITY ];
 ...
-entity_stack.PushElement( entity );
+entity_stack.PushEntity( entity );
 
 ```
 
 ### Allman style conversion
 
 Genesis can convert Allman style code into K&R style code.
+
+Statements should be properly ended with semicolons.
 
 ```go
 func GetResult(
