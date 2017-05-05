@@ -480,7 +480,7 @@ genesis --recursive --style .gp .go
 
 ## Version
 
-0.1
+0.2
 
 ## Author
 
