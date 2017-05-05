@@ -211,15 +211,10 @@ and are replaced before global variables and definitions.
 #set! GLOBAL_VARIABLE = The definition of a global variable
 #set LOCAL_VARIABLE = The definition of a local variable
 #set EVALUATED_VARIABLE := ( UpperCase "GLOBAL_VARIABLE" ) ~ ( LowerCase "LOCAL_VARIABLE" )
-#set* REPLACED_VARIABLE = The definition of a local variable replaced inside identifiers
-#set VARIABLE_NAME = QUOTED_UNREPLACED_VARIABLE
-#set VARIABLE_NAME @$#= GLOBAL_VARIABLE is not replaced here
-
-GLOBAL_VARIABLE
-LOCAL_VARIABLE
-EVALUATED_VARIABLE
-NICE_REPLACED_VARIABLE_HERE
-QUOTED_UNREPLACED_VARIABLE
+#set* IDENTIFIER_VARIABLE = The definition of a local variable replaced inside identifiers
+#set QUOTED_VARIABLE $= This text will be quoted
+#set UNREPLACED_VARIABLE #= GLOBAL_VARIABLE won't be replaced
+#set QUOTED_UNREPLACED_VARIABLE $#= This text will be quoted and GLOBAL_VARIABLE won't be replaced
 ```
 
 #### \#unset[*!] variable
