@@ -62,7 +62,7 @@ The types of the operator arguments are promoted to the highest argument type.
 The types of the function arguments are promoted to the required parameter types.
 
 ```
-integer > real > string
+integer >> real >> string
 
 #set result = "Result = " ~ 2.5
 #set value = Sinus 1
