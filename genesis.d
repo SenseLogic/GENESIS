@@ -27,6 +27,7 @@ import std.array : array;
 import std.ascii : isAlpha, isDigit;
 import std.conv : to;
 import std.file : dirEntries, exists, getcwd, readText, write, SpanMode;
+import std.format : format;
 import std.math : cos, sin, tan, asin, acos, atan, atan2, ceil, floor, round, trunc, fmod, abs, sqrt, pow, log, PI;
 import std.path : asNormalizedPath, chainPath, dirName;
 import std.random : uniform;
@@ -259,6 +260,29 @@ string toUnquoted(
     }
 
     return unquoted_text;
+}
+
+// ~~
+
+string GetRealText(
+    double real_value
+    )
+{
+    string
+        real_text;
+        
+    real_text = format!"%.32f"( real_value );
+    
+    if ( real_text.indexOf( '.' ) >= 0 )
+    {
+        while ( real_text.endsWith( '0' )
+                && !real_text.endsWith( ".0" ) )
+        {
+            real_text = real_text[ 0 .. $ - 1 ];
+        }
+    }
+    
+    return real_text;
 }
 
 // ~~
@@ -558,7 +582,7 @@ class TOKEN
         }
         else if ( Type == TOKEN_TYPE.Real )
         {
-            return Real.to!string();
+            return GetRealText( Real );
         }
         else if ( Type == TOKEN_TYPE.Integer )
         {
@@ -617,7 +641,7 @@ class TOKEN
     {
         if ( Type == TOKEN_TYPE.Real )
         {
-            return Real.to!string();
+            return GetRealText( Real );
         }
         else if ( Type == TOKEN_TYPE.Integer )
         {

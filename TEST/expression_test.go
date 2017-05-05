@@ -4,7 +4,7 @@
 
 90
 
-The result is : 2
+The result is : 2.0
 
 "   Hello world   "
 
@@ -14,4 +14,4 @@ The result is : 2
 
 Result   2.5
 
-1.41421
+1.41421356237309514547462185873883
