@@ -388,9 +388,9 @@ entity_stack.PushEntity( entity );
 
 ### Allman style conversion
 
-Genesis can convert Allman style code into K&R style code.
+Genesis can convert code written in Allman style into K&R style.
 
-Statements should be properly ended with semicolons.
+Statements must end with semicolons.
 
 ```go
 func GetResult(
@@ -458,7 +458,7 @@ genesis [options] {input_extension} {output_extension}
 --input_folder . : input folder (current folder by default)
 --output_folder = : output folder (same as input_folder by default)
 --recursive : also process sub folders
---join_lines : join source code lines written in Allman style
+--style : fix indent style
 --verbose : show the processing messages
 --debug : show the debugging messages
 --fatal : abort execution in case of an error
@@ -472,10 +472,10 @@ Read all ".jp" files in the current directory, and convert them into preprocesse
 genesis .jp .js
 ```
 
-Recursively read all ".gp" files in the current directory, and convert them into preprocessed ".go" files with joined lines.
+Recursively read all ".gp" files in the current directory, and convert them into preprocessed ".go" files in K&R style.
 
 ```bash
-genesis --recursive --join_lines .gp .go
+genesis --recursive --style .gp .go
 ```
 
 ## Version

@@ -40,7 +40,7 @@ import std.string : endsWith, indexOf, join, lineSplitter, replace, startsWith, 
 
 bool
     DebugOptionIsEnabled,
-    JoinLinesOptionIsEnabled,
+    StyleOptionIsEnabled,
     RecursiveOptionIsEnabled,
     VerboseOptionIsEnabled,
     FatalOptionIsEnabled;
@@ -2775,7 +2775,7 @@ void ProcessFile(
 
     IndentLineArray( line_array, indentation_array );
 
-    if ( JoinLinesOptionIsEnabled )
+    if ( StyleOptionIsEnabled )
     {
         JoinLineArray( line_array );
     }
@@ -2857,7 +2857,7 @@ bool CheckArguments(
     InputFolderPath = ".";
     OutputFolderPath = "=";
     RecursiveOptionIsEnabled = false;
-    JoinLinesOptionIsEnabled = false;
+    StyleOptionIsEnabled = false;
     VerboseOptionIsEnabled = false;
     DebugOptionIsEnabled = false;
     FatalOptionIsEnabled = false;
@@ -2890,9 +2890,9 @@ bool CheckArguments(
         {
             RecursiveOptionIsEnabled = true;
         }
-        else if ( option == "--join_lines" )
+        else if ( option == "--style" )
         {
-            JoinLinesOptionIsEnabled = true;
+            StyleOptionIsEnabled = true;
         }
         else if ( option == "--verbose" )
         {
@@ -2953,13 +2953,13 @@ void main(
         writeln( "    --input_folder ." );
         writeln( "    --output_folder =" );
         writeln( "    --recursive" );
-        writeln( "    --join_lines" );
+        writeln( "    --style" );
         writeln( "    --verbose" );
         writeln( "    --debug" );
         writeln( "    --fatal" );
         writeln( "Examples :" );
         writeln( "    genesis .jp .js" );
-        writeln( "    genesis --recursive --join_lines .gp .go" );
+        writeln( "    genesis --recursive --style .gp .go" );
     }
 }
 
