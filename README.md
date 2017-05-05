@@ -213,8 +213,8 @@ and are replaced before global variables and definitions.
 #set EVALUATED_VARIABLE := ( UpperCase "GLOBAL_VARIABLE" ) ~ ( LowerCase "LOCAL_VARIABLE" )
 #set* IDENTIFIER_VARIABLE = The definition of a local variable replaced inside identifiers
 #set QUOTED_VARIABLE $= This text will be quoted
-#set UNREPLACED_VARIABLE #= GLOBAL_VARIABLE won't be replaced
-#set QUOTED_UNREPLACED_VARIABLE $#= This text will be quoted and GLOBAL_VARIABLE won't be replaced
+#set UNREPLACED_VARIABLE #= GLOBAL_VARIABLE is not replaced
+#set QUOTED_UNREPLACED_VARIABLE $#= This text will be quoted and GLOBAL_VARIABLE is not replaced
 ```
 
 #### \#unset[*!] variable
