@@ -450,9 +450,12 @@ dmd genesis.d
 
 ## Command line
 
+``` 
 genesis [options] {input_extension} {output_extension}
+``` 
 
 ### Options
+
 ``` 
 --input_filter * : only include files with names matching this filter (anything by default)
 --input_folder . : input folder (current folder by default)
@@ -463,6 +466,7 @@ genesis [options] {input_extension} {output_extension}
 --debug : show the debugging messages
 --fatal : abort execution in case of an error
 ``` 
+
 ### Examples
 
 Read all ".jp" files in the current directory, and convert them into preprocessed ".js" files.
