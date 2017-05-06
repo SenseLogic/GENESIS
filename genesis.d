@@ -142,7 +142,7 @@ string toPascalCase(
     string[]
         word_array;
 
-    word_array = text.toLower().split( "_" );
+    word_array = text.toLower().split( '_' );
 
     foreach ( ref word; word_array )
     {
@@ -1894,7 +1894,7 @@ void DefineLineArray(
     }
     else
     {
-        definition_text = line_array[ line_index + 1 .. end_line_index ].join( "\n" );
+        definition_text = line_array[ line_index + 1 .. end_line_index ].join( '\n' );
 
         context.DefinitionMap[ definition_name ] = new DEFINITION( definition_name, definition_text );
 
@@ -1927,7 +1927,7 @@ void InsertLineArray(
 
     inserted_file_text = inserted_file_path.readText();
 
-    inserted_line_array = inserted_file_text.split( "\n" );
+    inserted_line_array = inserted_file_text.split( '\n' );
     inserted_indentation_array = GetIndentationArray( inserted_line_array, indentation );
 
     line_array = line_array[ 0 .. line_index ] ~ inserted_line_array ~ line_array[ line_index + 1 .. $ ];
@@ -1993,7 +1993,7 @@ void IncludeLineArray(
         included_file_text = included_file_path.readText();
     }
 
-    included_line_array = included_file_text.split( "\n" );
+    included_line_array = included_file_text.split( '\n' );
     included_indentation_array = GetIndentationArray( included_line_array, indentation );
 
     ProcessLineArray(
@@ -2180,7 +2180,7 @@ void ProcessLineArray(
                 {
                     if ( line_word_array.length > 1 )
                     {
-                        command_expression = line_word_array[ 1 .. $ ].join( " " ).strip();
+                        command_expression = line_word_array[ 1 .. $ ].join( ' ' ).strip();
                     }
                     else
                     {
@@ -2240,7 +2240,7 @@ void ProcessLineArray(
                             else
                             {
                                 variable_name = line_word_array[ 0 ].strip();
-                                variable_value = line_word_array[ 1 .. $ ].join( " " ).strip();
+                                variable_value = line_word_array[ 1 .. $ ].join( ' ' ).strip();
                                 variable_is_identifier = true;
 
                                 if ( command_name.indexOf( '*' ) >= 0 )
@@ -2757,7 +2757,7 @@ void ProcessFile(
 
     file_text = file_path.readText();
 
-    line_array = file_text.split( "\n" );
+    line_array = file_text.split( '\n' );
     indentation_array = GetIndentationArray( line_array, 0 );
 
     context = new CONTEXT;
@@ -2785,7 +2785,7 @@ void ProcessFile(
     processed_file_path = file_path[ 0 .. $ - InputExtension.length ] ~ OutputExtension;
     processed_file_path = ReplaceFolderPath( processed_file_path, InputFolderPath, OutputFolderPath );
 
-    processed_file_text = line_array.join( "\n" );
+    processed_file_text = line_array.join( '\n' );
 
     file_has_changed = true;
 
