@@ -1,6 +1,6 @@
 # Genesis
 
-Generic preprocessor for modern programming languages.
+Generic source code preprocessor.
 
 ## Motivation
 
