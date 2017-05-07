@@ -466,17 +466,17 @@ genesis [options] {input_extension} {output_extension}
 
 ### Examples
 
-Read all ".jp" files in the current directory, and convert them into preprocessed ".js" files.
-
 ```bash
 genesis .jp .js
 ```
 
-Recursively read all ".gp" files in the current directory, and convert them into preprocessed ".go" files in K&R style.
+Reads all ".jp" files in the current directory, and converts them into preprocessed ".js" files.
 
 ```bash
 genesis --recursive --style .gp .go
 ```
+
+Recursively reads all ".gp" files in the current directory, and converts them into preprocessed ".go" files in K&R style.
 
 ## Version
 
