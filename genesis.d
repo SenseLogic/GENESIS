@@ -2862,28 +2862,34 @@ bool CheckArguments(
     DebugOptionIsEnabled = false;
     FatalOptionIsEnabled = false;
 
-    while ( argument_array.length > 0
+    while ( argument_array.length >= 1
             && argument_array[ 0 ].startsWith( "--" ) )
     {
         option = argument_array[ 0 ];
+        
         argument_array = argument_array[ 1 .. $ ];
 
         if ( option == "--input_filter"
-             && argument_array.length > 0 )
+             && argument_array.length >= 1 )
         {
             InputFilter = argument_array[ 0 ];
+            
             argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--input_folder"
-                  && argument_array.length > 0 )
+                  && argument_array.length >= 1
+                  && argument_array[ 0 ].endsWith( '/' ) )
         {
             InputFolderPath = argument_array[ 0 ];
+            
             argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--output_folder"
-                  && argument_array.length > 0 )
+                  && argument_array.length >= 1
+                  && argument_array[ 0 ].endsWith( '/' ) )
         {
             OutputFolderPath = argument_array[ 0 ];
+            
             argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--recursive" )
