@@ -2930,7 +2930,7 @@ bool CheckArguments(
 
     if ( argument_array.length != 2 )
     {
-        Abort( "Invalid arguments" );
+        Abort( "Invalid arguments : " ~ argument_array.to!string() );
 
         return false;
     }
