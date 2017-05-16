@@ -2955,7 +2955,7 @@ void main(
     {
         writeln( "Usage : genesis [options] {input_extension} {output_extension}" );
         writeln( "Options :" );
-        writeln( "    --input_filter *" );
+        writeln( "    --input_filter \"*\"" );
         writeln( "    --input_folder ." );
         writeln( "    --output_folder =" );
         writeln( "    --recursive" );

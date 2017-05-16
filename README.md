@@ -454,7 +454,7 @@ genesis [options] {input_extension} {output_extension}
 ### Options
 
 ``` 
---input_filter * : only include files with names matching this filter (anything by default)
+--input_filter "*" : only include files with names matching this filter (anything by default)
 --input_folder . : input folder (current folder by default)
 --output_folder = : output folder (same as input_folder by default)
 --recursive : also process sub folders
