@@ -270,9 +270,9 @@ string GetRealText(
 {
     string
         real_text;
-        
+
     real_text = format!"%.32f"( real_value );
-    
+
     if ( real_text.indexOf( '.' ) >= 0 )
     {
         while ( real_text.endsWith( '0' )
@@ -281,7 +281,7 @@ string GetRealText(
             real_text = real_text[ 0 .. $ - 1 ];
         }
     }
-    
+
     return real_text;
 }
 
@@ -1174,7 +1174,7 @@ class EXPRESSION
                           && token_array.length == 3 )
                 {
                     if ( token_array[ 1 ].Type == TOKEN_TYPE.Integer
-                              && token_array[ 2 ].Type == TOKEN_TYPE.Integer )
+                         && token_array[ 2 ].Type == TOKEN_TYPE.Integer )
                     {
                         return new TOKEN( token_array[ 1 ].GetInteger().uniform( token_array[ 2 ].GetInteger() ) );
                     }
@@ -2866,14 +2866,14 @@ bool CheckArguments(
             && argument_array[ 0 ].startsWith( "--" ) )
     {
         option = argument_array[ 0 ];
-        
+
         argument_array = argument_array[ 1 .. $ ];
 
         if ( option == "--input_filter"
              && argument_array.length >= 1 )
         {
             InputFilter = argument_array[ 0 ];
-            
+
             argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--input_folder"
@@ -2881,7 +2881,7 @@ bool CheckArguments(
                   && argument_array[ 0 ].endsWith( '/' ) )
         {
             InputFolderPath = argument_array[ 0 ];
-            
+
             argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--output_folder"
@@ -2889,7 +2889,7 @@ bool CheckArguments(
                   && argument_array[ 0 ].endsWith( '/' ) )
         {
             OutputFolderPath = argument_array[ 0 ];
-            
+
             argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--recursive" )
@@ -2968,4 +2968,3 @@ void main(
         writeln( "    genesis --recursive --style .gp .go" );
     }
 }
-
