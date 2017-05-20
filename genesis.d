@@ -360,12 +360,11 @@ bool IsIdentifierCharacter(
     char character
     )
 {
-    return (
+    return
         ( character >= 'a' && character <= 'z' )
         || ( character >= 'A' && character <= 'Z' )
         || ( character >= '0' && character <= '9' )
-        || character == '_'
-        );
+        || character == '_';
 }
 
 // ~~
