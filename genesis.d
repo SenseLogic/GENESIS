@@ -59,7 +59,7 @@ void Abort(
     string message,
     string line = "",
     string file_path = "",
-    int line_index = 0
+    long line_index = 0
     )
 {
     writeln( "*** ERROR : ", message );
@@ -170,7 +170,7 @@ string toQuoted(
 {
     char
         character;
-    int
+    long
         character_index;
     string
         quoted_text;
@@ -218,7 +218,7 @@ string toUnquoted(
 {
     char
         character;
-    int
+    long
         character_index;
     string
         unquoted_text;
@@ -335,7 +335,7 @@ bool HasEndingComment(
 
 string FixIndentation(
     string text,
-    int indentation
+    long indentation
     )
 {
     while ( indentation < 0
@@ -393,7 +393,7 @@ string[] GetWordArray(
     char
         character,
         state;
-    int
+    long
         character_index;
     string[]
         word_array;
@@ -787,7 +787,7 @@ class EXPRESSION
             character,
             delimiter_character,
             next_character;
-        int
+        long
             character_index;
         TOKEN
             token;
@@ -1432,7 +1432,7 @@ class EXPRESSION
     TOKEN Evaluate(
         )
     {
-        int
+        long
             first_token_index,
             last_token_index,
             token_index;
@@ -1515,7 +1515,7 @@ class VARIABLE
         char
             next_character,
             prior_character;
-        int
+        long
             first_character_index,
             variable_character_index;
         string
@@ -1529,7 +1529,7 @@ class VARIABLE
 
             while ( first_character_index < text.length )
             {
-                variable_character_index = text.indexOf( Name, first_character_index ).to!int();
+                variable_character_index = text.indexOf( Name, first_character_index );
 
                 if ( variable_character_index >= 0 )
                 {
@@ -1794,15 +1794,15 @@ class CONDITION
 
 // .. LINE ARRAY
 
-int[] GetIndentationArray(
+long[] GetIndentationArray(
     ref string[] line_array,
-    int indentation
+    long indentation
     )
 {
-    int[]
+    long[]
         indentation_array;
 
-    indentation_array = new int[ line_array.length ];
+    indentation_array = new long[ line_array.length ];
 
     foreach ( line_index; 0 .. line_array.length )
     {
@@ -1816,7 +1816,7 @@ int[] GetIndentationArray(
 
 void LogLineArray(
     string[] line_array,
-    int[] indentation_array
+    long[] indentation_array
     )
 {
     foreach ( line_index; 0 .. indentation_array.length )
@@ -1827,12 +1827,12 @@ void LogLineArray(
 
 // ~~
 
-int FindEndLineIndex(
+long FindEndLineIndex(
     string[] line_array,
-    int line_index
+    long line_index
     )
 {
-    int
+    long
         level,
         end_line_index;
     string
@@ -1874,13 +1874,13 @@ int FindEndLineIndex(
 
 void DefineLineArray(
     ref string[] line_array,
-    ref int[] indentation_array,
-    int line_index,
+    ref long[] indentation_array,
+    long line_index,
     string definition_name,
     CONTEXT context
     )
 {
-    int
+    long
         end_line_index;
     string
         definition_text;
@@ -1906,13 +1906,13 @@ void DefineLineArray(
 
 void InsertLineArray(
     ref string[] line_array,
-    ref int[] indentation_array,
-    ref int line_index,
+    ref long[] indentation_array,
+    ref long line_index,
     string inserted_file_path,
-    int indentation
+    long indentation
     )
 {
-    int[]
+    long[]
         inserted_indentation_array;
     string
         inserted_file_text;
@@ -1939,16 +1939,16 @@ void InsertLineArray(
 
 void IncludeLineArray(
     ref string[] line_array,
-    ref int[] indentation_array,
-    int line_index,
+    ref long[] indentation_array,
+    long line_index,
     string called_definition_name,
     string included_file_path,
     string[] argument_value_array,
     CONTEXT context,
-    int indentation
+    long indentation
     )
 {
-    int[]
+    long[]
         included_indentation_array;
     string
         included_file_text;
@@ -2012,15 +2012,15 @@ void IncludeLineArray(
 
 void RepeatLineArray(
     ref string[] line_array,
-    ref int[] indentation_array,
-    int line_index,
+    ref long[] indentation_array,
+    long line_index,
     string command_expression,
     CONTEXT context
     )
 {
-    int
+    long
         end_line_index;
-    int[]
+    long[]
         inserted_indentation_array,
         repeated_indentation_array;
     string[]
@@ -2067,11 +2067,11 @@ void RepeatLineArray(
 
 void ProcessLineArray(
     ref string[] line_array,
-    ref int[] indentation_array,
+    ref long[] indentation_array,
     string file_path,
     string[] argument_value_array,
     CONTEXT context,
-    int indentation
+    long indentation
     )
 {
     string
@@ -2087,7 +2087,7 @@ void ProcessLineArray(
         stripped_line,
         variable_name,
         variable_value;
-    int
+    long
         line_index;
     string[]
         command_array,
@@ -2587,7 +2587,7 @@ void ProcessLineArray(
 
 void IndentLineArray(
     ref string[] line_array,
-    ref int[] indentation_array
+    ref long[] indentation_array
     )
 {
     foreach ( line_index; 0 .. indentation_array.length )
@@ -2607,7 +2607,7 @@ void JoinLineArray(
         line_first_character,
         line_last_character,
         next_line_first_character;
-    int
+    long
         line_index;
     string
         line,
@@ -2704,7 +2704,7 @@ void CleanLineArray(
     ref string[] line_array
     )
 {
-    int
+    long
         line_index;
 
     for ( line_index = 0;
@@ -2737,7 +2737,7 @@ void ProcessFile(
 {
     bool
         file_has_changed;
-    int[]
+    long[]
         indentation_array;
     string
         file_text,
