@@ -840,10 +840,10 @@ class EXPRESSION
                     }
                 }
                 else if ( ( token.Type == TOKEN_TYPE.Integer
-                            && ( isDigit( character )
+                            && ( character.isDigit()
                                  || character == '.' ) )
                           || ( token.Type == TOKEN_TYPE.Identifier
-                               && ( isAlpha( character )
+                               && ( character.isAlpha()
                                     || character == '_' ) )
                           || ( token.Type == TOKEN_TYPE.Operator
                                && "~+-*/&|!=<>".indexOf( character ) >= 0 ) )
@@ -901,14 +901,14 @@ class EXPRESSION
                     token.Type = TOKEN_TYPE.String;
                     delimiter_character = character;
                 }
-                else if ( isDigit( character )
+                else if ( character.isDigit()
                           || ( character == '-'
-                               && isDigit( next_character ) ) )
+                               && next_character.isDigit() ) )
                 {
                     token.Type = TOKEN_TYPE.Integer;
                     token.Text ~= character;
                 }
-                else if ( isAlpha( character )
+                else if ( character.isAlpha()
                           || character == '_' )
                 {
                     token.Type = TOKEN_TYPE.Identifier;
