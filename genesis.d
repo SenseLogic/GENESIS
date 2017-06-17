@@ -446,7 +446,7 @@ string[] GetWordArray(
 // ~~
 
 void TrimWordArray(
-    string[] word_array
+    ref string[] word_array
     )
 {
     foreach ( ref word; word_array )
@@ -1815,8 +1815,8 @@ long[] GetIndentationArray(
 // ~~
 
 void LogLineArray(
-    string[] line_array,
-    long[] indentation_array
+    ref string[] line_array,
+    ref long[] indentation_array
     )
 {
     foreach ( line_index; 0 .. indentation_array.length )
