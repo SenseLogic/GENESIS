@@ -480,7 +480,7 @@ Recursively reads all ".gp" files in the current directory, and converts them in
 
 ## Version
 
-0.2
+1.0
 
 ## Author
 
