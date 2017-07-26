@@ -455,7 +455,7 @@ genesis [options] {input_extension} {output_extension}
 
 ``` 
 --input_filter "*" : only include files with names matching this filter (anything by default)
---input_folder . : input folder (current folder by default)
+--input_folder ./ : input folder (current folder by default)
 --output_folder = : output folder (same as input_folder by default)
 --recursive : also process sub folders
 --style : fix indent style
@@ -470,13 +470,20 @@ genesis [options] {input_extension} {output_extension}
 genesis .jp .js
 ```
 
-Reads all ".jp" files in the current directory, and converts them into preprocessed ".js" files.
+Reads all ".jp" files in the current folder, and converts them into preprocessed ".js" files.
 
 ```bash
 genesis --recursive --style .gp .go
 ```
 
-Recursively reads all ".gp" files in the current directory, and converts them into preprocessed ".go" files in K&R style.
+Recursively reads all ".gp" files in the current folder, and converts them into preprocessed ".go" files in K&R style.
+
+```bash
+genesis --input_folder GP/ --output_folder GO/ --recursive --style .gp .go
+```
+
+Recursively reads all ".gp" files in the "GP/" folder, and converts them into preprocessed ".go" files in K&R style in the "GO/" folder.
+
 
 ## Version
 

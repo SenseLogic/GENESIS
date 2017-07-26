@@ -22,11 +22,12 @@
 
 // -- IMPORTS
 
+import core.stdc.stdlib : exit;
 import std.algorithm : countUntil, max, min;
 import std.array : array;
 import std.ascii : isAlpha, isDigit;
 import std.conv : to;
-import std.file : dirEntries, exists, getcwd, readText, write, SpanMode;
+import std.file : dirEntries, exists, getcwd, readText, write, SpanMode, FileException;
 import std.format : format;
 import std.math : cos, sin, tan, asin, acos, atan, atan2, ceil, floor, round, trunc, fmod, abs, sqrt, pow, log, PI;
 import std.path : asNormalizedPath, chainPath, dirName;
@@ -55,6 +56,39 @@ string
 
 // .. ERROR
 
+void PrintError(
+    string message
+    )
+{
+    writeln( "*** ERROR : ", message );
+}
+
+// ~~
+
+void Abort(
+    string message
+    )
+{
+    PrintError( message );
+
+    exit( -1 );
+}
+
+// ~~
+
+void Abort(
+    string message,
+    FileException file_exception
+    )
+{
+    PrintError( message );
+    PrintError( file_exception.msg );
+
+    exit( -1 );
+}
+
+// ~~
+
 void Abort(
     string message,
     string line = "",
@@ -62,7 +96,7 @@ void Abort(
     long line_index = 0
     )
 {
-    writeln( "*** ERROR : ", message );
+    PrintError( message );
 
     if ( file_path != "" )
     {
@@ -76,6 +110,44 @@ void Abort(
     if ( FatalOptionIsEnabled )
     {
         throw new Exception( message ~ line );
+    }
+}
+
+// .. FILE
+
+string ReadText(
+    string file_path
+    )
+{
+    string 
+        file_text;
+
+    try
+    {
+        file_text = file_path.readText();
+    }
+    catch ( FileException file_exception )
+    {
+        Abort( "Can't read file : " ~ file_path, file_exception );
+    }
+    
+    return file_text;
+}
+
+// ~~
+
+void WriteText(
+    string file_path,
+    string file_text
+    )
+{
+    try
+    {
+        file_path.write( file_text );
+    }
+    catch ( FileException file_exception )
+    {
+        Abort( "Can't write file : " ~ file_path, file_exception );
     }
 }
 
@@ -1924,7 +1996,7 @@ void InsertLineArray(
         writeln( "Inserting file : ", inserted_file_path );
     }
 
-    inserted_file_text = inserted_file_path.readText();
+    inserted_file_text = inserted_file_path.ReadText();
 
     inserted_line_array = inserted_file_text.split( '\n' );
     inserted_indentation_array = GetIndentationArray( inserted_line_array, indentation );
@@ -1989,7 +2061,7 @@ void IncludeLineArray(
             context.GlobalContext.IncludedFilePathArray ~= included_file_path;
         }
 
-        included_file_text = included_file_path.readText();
+        included_file_text = included_file_path.ReadText();
     }
 
     included_line_array = included_file_text.split( '\n' );
@@ -2754,7 +2826,7 @@ void ProcessFile(
         writeln( "Processing file : ", file_path );
     }
 
-    file_text = file_path.readText();
+    file_text = file_path.ReadText();
 
     line_array = file_text.split( '\n' );
     indentation_array = GetIndentationArray( line_array, 0 );
@@ -2790,7 +2862,7 @@ void ProcessFile(
 
     if ( processed_file_path.exists() )
     {
-        old_processed_file_text = processed_file_path.readText();
+        old_processed_file_text = processed_file_path.ReadText();
 
         if ( processed_file_text == old_processed_file_text )
         {
@@ -2805,7 +2877,7 @@ void ProcessFile(
             writeln( "Updating file : ", processed_file_path );
         }
 
-        processed_file_path.write( processed_file_text );
+        processed_file_path.WriteText( processed_file_text );
     }
     else
     {
@@ -2853,7 +2925,7 @@ bool CheckArguments(
     InputFilter = "*";
     InputExtension = ".gp";
     OutputExtension = ".go";
-    InputFolderPath = ".";
+    InputFolderPath = "./";
     OutputFolderPath = "=";
     RecursiveOptionIsEnabled = false;
     StyleOptionIsEnabled = false;
@@ -2955,7 +3027,7 @@ void main(
         writeln( "Usage : genesis [options] {input_extension} {output_extension}" );
         writeln( "Options :" );
         writeln( "    --input_filter \"*\"" );
-        writeln( "    --input_folder ." );
+        writeln( "    --input_folder ./" );
         writeln( "    --output_folder =" );
         writeln( "    --recursive" );
         writeln( "    --style" );
