@@ -1993,7 +1993,7 @@ void InsertLineArray(
 
     if ( VerboseOptionIsEnabled )
     {
-        writeln( "Inserting file : ", inserted_file_path );
+        writeln( "Reading file : ", inserted_file_path );
     }
 
     inserted_file_text = inserted_file_path.ReadText();
@@ -2033,7 +2033,7 @@ void IncludeLineArray(
     {
         if ( VerboseOptionIsEnabled )
         {
-            writeln( "Calling function : ", called_definition_name );
+            writeln( "Instantiating : ", called_definition_name );
         }
 
         included_file_path = called_definition_name;
@@ -2046,14 +2046,14 @@ void IncludeLineArray(
         }
         else
         {
-            Abort( "Unkown function ", called_definition_name );
+            Abort( "Unkown definition ", called_definition_name );
         }
     }
     else
     {
         if ( VerboseOptionIsEnabled )
         {
-            writeln( "Including file : ", included_file_path );
+            writeln( "Reading file : ", included_file_path );
         }
 
         if ( context.GlobalContext.IncludedFilePathArray.countUntil( included_file_path ) < 0 )
@@ -2823,7 +2823,7 @@ void ProcessFile(
 
     if ( VerboseOptionIsEnabled )
     {
-        writeln( "Processing file : ", file_path );
+        writeln( "Reading file : ", file_path );
     }
 
     file_text = file_path.ReadText();
@@ -2872,10 +2872,7 @@ void ProcessFile(
 
     if ( file_has_changed )
     {
-        if ( VerboseOptionIsEnabled )
-        {
-            writeln( "Updating file : ", processed_file_path );
-        }
+        writeln( "Writing file : ", processed_file_path );
 
         processed_file_path.WriteText( processed_file_text );
     }
