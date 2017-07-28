@@ -1,15 +1,15 @@
 /*
-    This file is part of the Genesis distribution.
+    This file is part of the Generis distribution.
 
-    https://github.com/senselogic/GENESIS
+    https://github.com/senselogic/GENERIS
 
     Copyright (C) 2017 Eric Pelzer (ecstatic.coder@gmail.com)
 
-    Genesis is free software: you can redistribute it and/or modify
+    Generis is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, version 3.
 
-    Genesis is distributed in the hope that it will be useful,
+    Generis is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -3021,7 +3021,7 @@ void main(
     }
     else
     {
-        writeln( "Usage : genesis [options] {input_extension} {output_extension}" );
+        writeln( "Usage : generis [options] {input_extension} {output_extension}" );
         writeln( "Options :" );
         writeln( "    --input_filter \"*\"" );
         writeln( "    --input_folder ./" );
@@ -3032,7 +3032,7 @@ void main(
         writeln( "    --debug" );
         writeln( "    --fatal" );
         writeln( "Examples :" );
-        writeln( "    genesis .jp .js" );
-        writeln( "    genesis --recursive --style .gp .go" );
+        writeln( "    generis .jp .js" );
+        writeln( "    generis --recursive --style .gp .go" );
     }
 }
