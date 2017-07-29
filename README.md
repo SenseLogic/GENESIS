@@ -1,4 +1,4 @@
-# Generis
+# Genesis
 
 Generic source code preprocessor.
 
@@ -388,7 +388,7 @@ entity_stack.PushEntity( entity );
 
 ### Allman style conversion
 
-Generis can convert code written in Allman style into K&R style.
+Genesis can convert code written in Allman style into K&R style.
 
 Statements must end with semicolons.
 
@@ -442,13 +442,13 @@ Install the [DMD 2 compiler](https://dlang.org/download.html).
 Build the executable with the following command line :
 
 ```bash
-dmd -m64 generis.d
+dmd -m64 genesis.d
 ```
 
 ## Command line
 
 ``` 
-generis [options] {input_extension} {output_extension}
+genesis [options] {input_extension} {output_extension}
 ``` 
 
 ### Options
@@ -467,19 +467,19 @@ generis [options] {input_extension} {output_extension}
 ### Examples
 
 ```bash
-generis .jp .js
+genesis .jp .js
 ```
 
 Reads all ".jp" files in the current folder, and converts them into preprocessed ".js" files.
 
 ```bash
-generis --recursive --style .gp .go
+genesis --recursive --style .gp .go
 ```
 
 Recursively reads all ".gp" files in the current folder, and converts them into preprocessed ".go" files in K&R style.
 
 ```bash
-generis --input_folder GP/ --output_folder GO/ --recursive --style .gp .go
+genesis --input_folder GP/ --output_folder GO/ --recursive --style .gp .go
 ```
 
 Recursively reads all ".gp" files in the "GP/" folder, and converts them into preprocessed ".go" files in K&R style in the "GO/" folder.

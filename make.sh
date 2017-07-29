@@ -1,3 +1,3 @@
 #!/bin/sh
 set -x
-dmd -m64 generis.d
+dmd -m64 genesis.d
