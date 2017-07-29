@@ -3034,5 +3034,6 @@ void main(
         writeln( "Examples :" );
         writeln( "    genesis .jp .js" );
         writeln( "    genesis --recursive --style .gs .go" );
+        writeln( "    genesis --input_folder GS/ --output_folder GO/ --recursive --style .gs .go" );
     }
 }
