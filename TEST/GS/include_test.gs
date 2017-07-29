@@ -61,14 +61,14 @@
 
 // ~~
 
-#include include.gpp, "first", "#1", one, "0"
-#include include.gpp, "first", "#1", one, "1"
-#include include.gpp, "second", "#2", two, "2"
-#include include.gpp, "third", "#3", three, "3"
-#include include.gpp, "fourth", "#4", four, "4"
-#include include.gpp, "other", "?", any, "0"
+#include include.gi, "first", "#1", one, "0"
+#include include.gi, "first", "#1", one, "1"
+#include include.gi, "second", "#2", two, "2"
+#include include.gi, "third", "#3", three, "3"
+#include include.gi, "fourth", "#4", four, "4"
+#include include.gi, "other", "?", any, "0"
 
-#import include.gpp
+#import include.gi
 
 // ~~
 

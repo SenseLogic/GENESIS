@@ -2920,7 +2920,7 @@ bool CheckArguments(
         value;
 
     InputFilter = "*";
-    InputExtension = ".gp";
+    InputExtension = ".gs";
     OutputExtension = ".go";
     InputFolderPath = "./";
     OutputFolderPath = "=";
@@ -3033,6 +3033,6 @@ void main(
         writeln( "    --fatal" );
         writeln( "Examples :" );
         writeln( "    genesis .jp .js" );
-        writeln( "    genesis --recursive --style .gp .go" );
+        writeln( "    genesis --recursive --style .gs .go" );
     }
 }

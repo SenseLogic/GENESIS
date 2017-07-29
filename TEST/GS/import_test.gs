@@ -1,6 +1,6 @@
 package main;
 
-#import stack.gpp
+#import stack.gi
 
 #call ImplementStack, int
 

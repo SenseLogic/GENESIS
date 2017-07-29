@@ -20,7 +20,7 @@ unless they are surrounded by "@" characters or defined with a '#set*' directive
 Variables surrounded by "$" characters are double-quoted and escaped ("\n", "\t", etc).
     
 ```cpp
-// test.gp
+// test.gs
 
 #set XXX = BLABLA
 #set* YYY = BLABLA
@@ -165,7 +165,7 @@ Calls a function.
 Includes a parametric file.
     
 ```cpp
-#include file.gpp, Type, "Text", 10
+#include file.gsp, Type, "Text", 10
 ```
     
 #### \#import file_path \[ , first_argument, second_argument, ... \]
@@ -173,7 +173,7 @@ Includes a parametric file.
 Includes a parametric file only once.
     
 ```cpp
-#import file.gpp, Type, "Text", 10
+#import file.gsp, Type, "Text", 10
 ```
 
 #### \#insert file_path
@@ -189,7 +189,7 @@ Includes an unprocessed file.
 Assigns a call or inclusion argument to a variable.
 
 ```cpp
-// file.gpp
+// file.gsp
 
 #get FIRST_ARGUMENT
 #get SECOND_ARGUMENT
@@ -342,7 +342,7 @@ stack.PushEntity( entity );
 ### Parametric type inclusion
 
 ```cpp
-// stack.gpp
+// stack.gsp
 
 #get _ELEMENT_
 
@@ -376,9 +376,9 @@ func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
 
 #set! STACK[ _Element_ ] @= _ELEMENT_STACK_
 
-// main.gp
+// main.gs
 
-#include stack.gpp, ENTITY
+#include stack.gsp, ENTITY
 ...
 var entity_stack STACK[ ENTITY ];
 ...
@@ -473,16 +473,16 @@ genesis .jp .js
 Reads all ".jp" files in the current folder, and converts them into preprocessed ".js" files.
 
 ```bash
-genesis --recursive --style .gp .go
+genesis --recursive --style .gs .go
 ```
 
-Recursively reads all ".gp" files in the current folder, and converts them into preprocessed ".go" files in K&R style.
+Recursively reads all ".gs" files in the current folder, and converts them into preprocessed ".go" files in K&R style.
 
 ```bash
-genesis --input_folder GP/ --output_folder GO/ --recursive --style .gp .go
+genesis --input_folder GS/ --output_folder GO/ --recursive --style .gs .go
 ```
 
-Recursively reads all ".gp" files in the "GP/" folder, and converts them into preprocessed ".go" files in K&R style in the "GO/" folder.
+Recursively reads all ".gs" files in the "GS/" folder, and converts them into preprocessed ".go" files in K&R style in the "GO/" folder.
 
 
 ## Version
