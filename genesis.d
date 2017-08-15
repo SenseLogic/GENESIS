@@ -1563,7 +1563,7 @@ class VARIABLE
         Name,
         Value;
     bool
-        ItIsIdentifier;
+        IsIdentifier;
 
     // -- CONSTRUCTORS
 
@@ -1575,7 +1575,7 @@ class VARIABLE
     {
         Name = name;
         Value = value;
-        ItIsIdentifier = it_is_identifier;
+        IsIdentifier = it_is_identifier;
     }
 
     // -- INQUIRIES
@@ -1623,7 +1623,7 @@ class VARIABLE
                         next_character = 0;
                     }
 
-                    if ( !ItIsIdentifier
+                    if ( !IsIdentifier
                          || ( !IsIdentifierCharacter( prior_character )
                               && !IsIdentifierCharacter( next_character ) ) )
                     {
@@ -1849,8 +1849,8 @@ class CONDITION
     // -- ATTRIBUTES
 
     bool
-        ItWasTrue,
-        ItIsTrue;
+        WasTrue,
+        IsTrue;
 
     // -- CONSTRUCTORS
 
@@ -1859,8 +1859,8 @@ class CONDITION
         bool it_is_true
         )
     {
-        ItWasTrue = it_was_true;
-        ItIsTrue = it_is_true;
+        WasTrue = it_was_true;
+        IsTrue = it_is_true;
     }
 }
 
@@ -2231,7 +2231,7 @@ void ProcessLineArray(
 
         foreach ( ref condition; condition_array )
         {
-            if ( !condition.ItIsTrue )
+            if ( !condition.IsTrue )
             {
                 line_is_ignored = true;
 
@@ -2586,7 +2586,7 @@ void ProcessLineArray(
                     }
                     else if ( command_name == "#elseif" )
                     {
-                        if ( !condition_array[ condition_array.length - 1 ].ItWasTrue )
+                        if ( !condition_array[ condition_array.length - 1 ].WasTrue )
                         {
                             if ( command_expression == "" )
                             {
@@ -2603,18 +2603,18 @@ void ProcessLineArray(
                         }
                         else
                         {
-                            condition_array[ $ - 1 ].ItIsTrue = false;
+                            condition_array[ $ - 1 ].IsTrue = false;
                         }
                     }
                     else if ( stripped_line == "#else" )
                     {
-                        if ( !condition_array[ $ - 1 ].ItWasTrue )
+                        if ( !condition_array[ $ - 1 ].WasTrue )
                         {
                             condition_array[ $ - 1 ] = new CONDITION( true, true );
                         }
                         else
                         {
-                            condition_array[ $ - 1 ].ItIsTrue = false;
+                            condition_array[ $ - 1 ].IsTrue = false;
                         }
                     }
                     else if ( stripped_line == "#end" )
