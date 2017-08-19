@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="3000"
-   height="3000"
-   viewBox="0 0 3000 3000"
+   width="3115.3821"
+   height="2778.7075"
+   viewBox="0 0 3115.3821 2778.7075"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -20,7 +20,23 @@
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
-     id="defs4" />
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4170"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,18 +44,28 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.12374369"
-     inkscape:cx="-1018.6688"
-     inkscape:cy="246.4095"
+     inkscape:zoom="0.175"
+     inkscape:cx="627.53437"
+     inkscape:cy="1334.0183"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      units="px"
      inkscape:window-width="1920"
      inkscape:window-height="1056"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     fit-margin-top="50"
+     fit-margin-left="50"
+     fit-margin-right="50"
+     fit-margin-bottom="50">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4149"
+       originx="23.405402"
+       originy="-25.276542" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -48,7 +74,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -56,59 +82,35 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,1947.6378)">
-    <circle
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#5454b4;stroke-width:134.30000305;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path4136"
-       cx="1500"
-       cy="-783.4325"
-       r="860.64996" />
-    <g
-       id="g4152"
-       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,1395.6043,-1517.4846)"
-       style="fill:#646464;fill-opacity:1">
-      <rect
-         y="-147.6377"
-         x="340"
-         height="1200"
-         width="120"
-         id="rect4144"
-         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect4146"
-         width="120"
-         height="1200"
-         x="740"
-         y="-147.6377" />
-      <rect
-         transform="matrix(0,1,-1,0,0,0)"
-         y="-1200"
-         x="192.3622"
-         height="1200"
-         width="120"
-         id="rect4148"
-         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect4150"
-         width="120"
-         height="1200"
-         x="592.36218"
-         y="-1200"
-         transform="matrix(0,1,-1,0,0,0)" />
-    </g>
+     transform="translate(23.405402,1751.6219)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4444c4;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       x="260.0708"
-       y="789.50488"
+       style="font-style:normal;font-weight:normal;font-size:50.05473328px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4444c4;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-17.322443"
+       y="966.01093"
        id="text4177"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4179"
-         x="260.0708"
-         y="789.50488"
-         style="font-size:625px;fill:#4444c4;fill-opacity:1;">Genesis</tspan></text>
+         x="-17.322443"
+         y="966.01093"
+         style="font-size:782.10522461px;fill:#4444c4;fill-opacity:1">Genesis</tspan></text>
+    <g
+       id="g4449"
+       transform="translate(34.285675,0)">
+      <path
+         sodipodi:nodetypes="ccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path4428"
+         d="m 1959.4064,-1235.5033 116.1629,-116.1628 -1151.13858,0 0,1161.62834 1151.13858,0 0,-606.52845 -543.6713,0 116.1629,116.16283 311.3455,0 0,374.20279 -918.8128,0 0,-929.30271 z"
+         style="fill:#4444c4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         y="-1646.9181"
+         x="624.73871"
+         height="1750.5226"
+         width="1750.5226"
+         id="rect4447"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#4444c4;stroke-width:109.40766144;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
 </svg>
