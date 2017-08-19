@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="634.28571"
-     inkscape:cy="733.68854"
+     inkscape:zoom="0.12374369"
+     inkscape:cx="-1018.6688"
+     inkscape:cy="246.4095"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -58,24 +58,24 @@
      id="layer1"
      transform="translate(0,1947.6378)">
     <circle
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#343ccb;stroke-width:134.30000305;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#5454b4;stroke-width:134.30000305;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4136"
        cx="1500"
        cy="-783.4325"
        r="860.64996" />
     <g
        id="g4152"
-       transform="matrix(1,0,-0.16190476,1,973.23956,-1225.7144)"
-       style="fill:#404040;fill-opacity:1">
+       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,1395.6043,-1517.4846)"
+       style="fill:#646464;fill-opacity:1">
       <rect
          y="-147.6377"
          x="340"
          height="1200"
          width="120"
          id="rect4144"
-         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <rect
-         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect4146"
          width="120"
          height="1200"
@@ -88,9 +88,9 @@
          height="1200"
          width="120"
          id="rect4148"
-         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <rect
-         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect4150"
          width="120"
          height="1200"
@@ -100,7 +100,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#343ccb;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4444c4;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="260.0708"
        y="789.50488"
        id="text4177"
@@ -109,6 +109,6 @@
          id="tspan4179"
          x="260.0708"
          y="789.50488"
-         style="font-size:625px;fill:#343ccb;fill-opacity:1;">Genesis</tspan></text>
+         style="font-size:625px;fill:#4444c4;fill-opacity:1;">Genesis</tspan></text>
   </g>
 </svg>
