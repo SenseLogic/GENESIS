@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="1146.865"
-     inkscape:cy="1074.0633"
+     inkscape:zoom="0.175"
+     inkscape:cx="697.09055"
+     inkscape:cy="767.97425"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,16 +65,17 @@
        r="860.64996" />
     <g
        id="g4152"
-       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,1395.6043,-1517.4846)">
+       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,1395.6043,-1517.4846)"
+       style="fill:#404040;fill-opacity:1">
       <rect
          y="-147.6377"
          x="340"
          height="1200"
          width="120"
          id="rect4144"
-         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <rect
-         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect4146"
          width="120"
          height="1200"
@@ -87,9 +88,9 @@
          height="1200"
          width="120"
          id="rect4148"
-         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <rect
-         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:1;fill:#404040;fill-opacity:1;stroke:none;stroke-width:214.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect4150"
          width="120"
          height="1200"
