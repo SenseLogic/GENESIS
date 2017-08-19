@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.175"
-     inkscape:cx="82.857143"
-     inkscape:cy="745.11711"
+     inkscape:cx="634.28571"
+     inkscape:cy="733.68854"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,7 +65,7 @@
        r="860.64996" />
     <g
        id="g4152"
-       transform="translate(899.99995,-1225.7144)"
+       transform="matrix(1,0,-0.16190476,1,973.23956,-1225.7144)"
        style="fill:#404040;fill-opacity:1">
       <rect
          y="-147.6377"
