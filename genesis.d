@@ -119,7 +119,7 @@ string ReadText(
     string file_path
     )
 {
-    string 
+    string
         file_text;
 
     try
@@ -130,7 +130,7 @@ string ReadText(
     {
         Abort( "Can't read file : " ~ file_path, file_exception );
     }
-    
+
     return file_text;
 }
 
