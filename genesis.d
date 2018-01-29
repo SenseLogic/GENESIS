@@ -487,7 +487,7 @@ string[] GetWordArray(
         }
         else
         {
-            word_array[ word_array.length - 1 ] ~= character;
+            word_array[ word_array.length.to!long() - 1 ] ~= character;
 
             if ( "'\"`".indexOf( character ) >= 0 )
             {
@@ -507,7 +507,7 @@ string[] GetWordArray(
             {
                 ++character_index;
 
-                word_array[ word_array.length - 1 ] ~= text[ character_index ];
+                word_array[ word_array.length.to!long() - 1 ] ~= text[ character_index ];
             }
         }
     }
@@ -1635,7 +1635,7 @@ class VARIABLE
                                   ~ Value
                                   ~ text[ variable_character_index + Name.length + 1 .. $ ];
 
-                            first_character_index += Value.length - 1;
+                            first_character_index += Value.length.to!long() - 1;
                         }
                         else if ( prior_character == '$'
                                   && next_character == '$' )
@@ -1645,7 +1645,7 @@ class VARIABLE
                                   ~ Value.toQuoted()
                                   ~ text[ variable_character_index + Name.length + 1 .. $ ];
 
-                            first_character_index += Value.length - 1;
+                            first_character_index += Value.length.to!long() - 1;
                         }
                         else
                         {
@@ -2004,7 +2004,7 @@ void InsertLineArray(
     line_array = line_array[ 0 .. line_index ] ~ inserted_line_array ~ line_array[ line_index + 1 .. $ ];
     indentation_array = indentation_array[ 0 .. line_index ] ~ inserted_indentation_array ~ indentation_array[ line_index + 1 .. $ ];
 
-    line_index += inserted_line_array.length - 1;
+    line_index += inserted_line_array.length.to!long() - 1;
 }
 
 // ~~
@@ -2586,7 +2586,7 @@ void ProcessLineArray(
                     }
                     else if ( command_name == "#elseif" )
                     {
-                        if ( !condition_array[ condition_array.length - 1 ].WasTrue )
+                        if ( !condition_array[ condition_array.length.to!long() - 1 ].WasTrue )
                         {
                             if ( command_expression == "" )
                             {
@@ -2787,7 +2787,7 @@ void CleanLineArray(
     }
 
     for ( line_index = 0;
-          line_index < line_array.length - 1;
+          line_index + 1 < line_array.length;
           ++line_index )
     {
         if ( line_array[ line_index ] == ""
@@ -2853,7 +2853,7 @@ void ProcessFile(
 
     CleanLineArray( line_array );
 
-    processed_file_path = file_path[ 0 .. $ - InputExtension.length ] ~ OutputExtension;
+    processed_file_path = file_path[ 0 .. $ - InputExtension.length.to!long() ] ~ OutputExtension;
     processed_file_path = ReplaceFolderPath( processed_file_path, InputFolderPath, OutputFolderPath );
 
     processed_file_text = line_array.join( '\n' );
