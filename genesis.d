@@ -2901,7 +2901,7 @@ void ProcessFolder(
         dirEntries(
             folder_path,
             InputFilter ~ InputExtension,
-            RecursiveOptionIsEnabled ? SpanMode.breadth : SpanMode.shallow
+            RecursiveOptionIsEnabled ? SpanMode.depth : SpanMode.shallow
             )
         )
     {
