@@ -2224,7 +2224,7 @@ void ProcessLineArray(
 
         if ( DebugOptionIsEnabled )
         {
-            writeln( file_path ~ " : ", line );
+            writeln( file_path, " : ", line );
         }
 
         line_is_ignored = false;
