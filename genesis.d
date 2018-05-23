@@ -1809,7 +1809,7 @@ class CONTEXT
         CONTEXT
             sub_context;
 
-        sub_context = new CONTEXT;
+        sub_context = new CONTEXT();
         sub_context.SuperContext = this;
         sub_context.GlobalContext = GlobalContext;
 
@@ -2831,7 +2831,7 @@ void ProcessFile(
     line_array = file_text.split( '\n' );
     indentation_array = GetIndentationArray( line_array, 0 );
 
-    context = new CONTEXT;
+    context = new CONTEXT();
     context.GlobalContext = context;
     context.IncludedFilePathArray = [ file_path ];
 
