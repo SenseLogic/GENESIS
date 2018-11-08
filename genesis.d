@@ -860,7 +860,7 @@ class EXPRESSION
         TOKEN
             token;
 
-        TokenArray = [];
+        TokenArray = null;
 
         token = null;
         delimiter_character = 0;
