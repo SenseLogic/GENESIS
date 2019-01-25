@@ -8,8 +8,7 @@ package main;
 
     func ( stack * intStack ) Pop( item * int ) { }
 
-var first_stack intStack;
-var second_stack intStack;
+var first_stack intStack, second_stack intStack;
 
 func GetResult( first_integer int, second_integer int, third_integer int, fourth_integer int ) ( result int ) {
     if first_integer == second_integer || ( first_integer < second_integer && first_integer > 10 && second_integer < 20 ) || ( first_integer > second_integer && first_integer > 10 && second_integer < 20 ) {
@@ -24,6 +23,8 @@ func GetResult( first_integer int, second_integer int, third_integer int, fourth
 // ~~
 
 func GetOtherResult( first_integer int, second_integer int, third_integer int, fourth_integer int ) int {
+    var an_integer : int, a_string : string;
+
     if first_integer < second_integer || third_integer > fourth_integer {
         return first_integer * 2 - second_integer * 4 + third_integer * 6 - fourth_integer * 8;
     } else {

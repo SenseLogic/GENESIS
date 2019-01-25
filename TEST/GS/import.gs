@@ -4,8 +4,9 @@ package main;
 
 #call ImplementStack, int
 
-var first_stack intStack;
-var second_stack stack[ int ];
+var 
+    first_stack intStack,
+    second_stack stack[ int ];
 
 func GetResult(
     first_integer int,
@@ -47,6 +48,10 @@ func GetOtherResult(
     fourth_integer int
     ) int
 {
+    var
+        an_integer : int,
+        a_string : string;
+        
     if first_integer < second_integer
        || third_integer > fourth_integer
     {

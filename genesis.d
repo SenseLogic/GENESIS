@@ -2745,6 +2745,7 @@ void JoinLineArray(
                           && "};,".indexOf( line_last_character ) < 0
                           && next_line_first_character == '}' )
                      || stripped_line == "return"
+                     || stripped_line == "var"
                      || ( stripped_line == "}"
                           && ( next_stripped_line == "else"
                                || next_stripped_line.startsWith( "else " ) ) ) )
