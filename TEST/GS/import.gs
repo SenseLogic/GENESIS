@@ -4,9 +4,13 @@ package main;
 
 #call ImplementStack, int
 
-var 
+// ~~
+
+var
     first_stack intStack,
     second_stack stack[ int ];
+
+// ~~
 
 func GetResult(
     first_integer int,
@@ -35,7 +39,7 @@ func GetResult(
     {
         result = 0;
     }
-    
+
     return;
 }
 
@@ -51,7 +55,7 @@ func GetOtherResult(
     var
         an_integer : int,
         a_string : string;
-        
+
     if first_integer < second_integer
        || third_integer > fourth_integer
     {
@@ -78,6 +82,27 @@ func GetOtherResult(
                 );
     }
 }
+
+// ~~
+
+func TestPointers(
+    pointer * TYPE
+    )
+{
+    *pointer = new( TYPE );
+    if ( pointer != nil )
+    {
+        *pointer = new( TYPE );
+        *pointer = new( TYPE );
+
+        *pointer = new( TYPE );
+        // comment
+        *pointer = new( TYPE );
+    }
+    *pointer = new( TYPE );
+}
+
+// ~~
 
 func main()
 {

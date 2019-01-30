@@ -8,7 +8,11 @@ package main;
 
     func ( stack * intStack ) Pop( item * int ) { }
 
+// ~~
+
 var first_stack intStack, second_stack intStack;
+
+// ~~
 
 func GetResult( first_integer int, second_integer int, third_integer int, fourth_integer int ) ( result int ) {
     if first_integer == second_integer || ( first_integer < second_integer && first_integer > 10 && second_integer < 20 ) || ( first_integer > second_integer && first_integer > 10 && second_integer < 20 ) {
@@ -31,5 +35,22 @@ func GetOtherResult( first_integer int, second_integer int, third_integer int, f
         return GetResult( first_integer, second_integer, third_integer, fourth_integer ) + GetResult( first_integer + second_integer, second_integer + third_integer, third_integer + fourth_integer, fourth_integer + first_integer );
     }
 }
+
+// ~~
+
+func TestPointers( pointer * TYPE ) {
+    *pointer = new( TYPE );
+    if ( pointer != nil ) {
+        *pointer = new( TYPE );
+        *pointer = new( TYPE );
+
+        *pointer = new( TYPE );
+        // comment
+        *pointer = new( TYPE );
+    }
+    *pointer = new( TYPE );
+}
+
+// ~~
 
 func main() { }

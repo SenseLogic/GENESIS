@@ -2674,7 +2674,8 @@ void JoinLineArray(
     char
         line_first_character,
         line_last_character,
-        next_line_first_character;
+        next_line_first_character,
+        prior_line_last_character;
     long
         line_index;
     string
@@ -2716,7 +2717,18 @@ void JoinLineArray(
             {
                 prior_stripped_line = stripRight( line_array[ line_index - 1 ] );
 
-                if ( !HasEndingComment( prior_stripped_line ) )
+                if ( prior_stripped_line.length > 0 )
+                {
+                    prior_line_last_character = prior_stripped_line[ $ - 1 ];
+                }
+                else
+                {
+                    prior_line_last_character = 0;
+                }
+
+                if ( !HasEndingComment( prior_stripped_line )
+                     && prior_stripped_line != ""
+                     && "{};".indexOf( prior_line_last_character ) < 0 )
                 {
                     line_array[ line_index - 1 ] = prior_stripped_line ~ " " ~ stripped_line;
                     line_array = line_array[ 0 .. line_index ] ~ line_array[ line_index + 1 .. $ ];
