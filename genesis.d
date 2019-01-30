@@ -2728,7 +2728,9 @@ void JoinLineArray(
 
                 if ( !HasEndingComment( prior_stripped_line )
                      && prior_stripped_line != ""
-                     && "{};".indexOf( prior_line_last_character ) < 0 )
+                     && ( "{};".indexOf( prior_line_last_character ) < 0
+                          || ( prior_line_last_character == '}'
+                               && ")]".indexOf( line_first_character ) >= 0 ) ) )
                 {
                     line_array[ line_index - 1 ] = prior_stripped_line ~ " " ~ stripped_line;
                     line_array = line_array[ 0 .. line_index ] ~ line_array[ line_index + 1 .. $ ];
