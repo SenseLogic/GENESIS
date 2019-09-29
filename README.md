@@ -14,13 +14,13 @@ Add the following features to JavaScript, Go and other alike languages :
 
 ## Syntax
 
-### Variables 
+### Variables
 
-Variables are replaced inside strings and comments, but not inside identifiers, 
+Variables are replaced inside strings and comments, but not inside identifiers,
 unless they are surrounded by "@" characters or defined with a '#set*' directive.
 
 Variables surrounded by "$" characters are double-quoted and escaped ("\n", "\t", etc).
-    
+
 ```cpp
 // test.gs
 
@@ -74,23 +74,23 @@ integer >> real >> string
 
 * Unary operators :
   * ! -
-* Binary operators : 
+* Binary operators :
   * ~ + - * / %
-  * && || 
-  * & | << >> 
+  * && ||
+  * & | << >>
   * < <= == != >= >
 
 The string concatenation operator is "~".
-  
+
 ### Expression functions
 
-* Conversion functions : 
+* Conversion functions :
   * String Real Integer
-* String functions : 
+* String functions :
   * LowerCase UpperCase MinorCase MajorCase SnakeCase CamelCase PascalCase Quote Unquote
   * Strip StripLeft StripRight Replace Index Contains HasPrefix HasSuffix
 * Real functions :
-  * Ceil Floor Round Trunc Remainder Power Log SquareRoot 
+  * Ceil Floor Round Trunc Remainder Power Log SquareRoot
   * Cosinus Sinus Tangent ArcCosinus ArcSinus ArcTangent
 * Numeric functions :
   * Absolute Random
@@ -103,7 +103,7 @@ The string concatenation operator is "~".
   * false true
 * Real constants :
   * pi
-  
+
 ### Command modifiers
 
 Some commands can be suffixed with one or several modifiers, in the following order.
@@ -129,7 +129,7 @@ $ : quote the variable value
 #### \#define[!] function
 
 Declares a parametric function.
-    
+
 ```cpp
 #define! MY_GLOBAL_FUNCTION
     #get _FIRST_NAME_
@@ -147,41 +147,41 @@ Declares a parametric function.
 #### \#undefine[!] function
 
 Undeclares a parametric function.
-    
+
 ```cpp
 #undefine! MY_GLOBAL_FUNCTION
 #undefine MY_LOCAL_FUNCTION
 ```
 
-#### \#call function \[ , first_argument, second_argument, ... \] 
+#### \#call function \[ , first_argument, second_argument, ... \]
 
 Calls a function.
-    
+
 ```cpp
 #call MY_GLOBAL_FUNCTION, John, Doe
 #call MY_LOCAL_FUNCTION, John, Doe
 ```
 
-#### \#include file_path \[ , first_argument, second_argument, ... \] 
+#### \#include file_path \[ , first_argument, second_argument, ... \]
 
 Includes a parametric file.
-    
+
 ```cpp
 #include file.gsp, Type, "Text", 10
 ```
-    
+
 #### \#import file_path \[ , first_argument, second_argument, ... \]
-    
+
 Includes a parametric file only once.
-    
+
 ```cpp
 #import file.gsp, Type, "Text", 10
 ```
 
 #### \#insert file_path
-    
+
 Includes an unprocessed file.
-    
+
 ```cpp
 #insert file.txt
 ```
@@ -208,7 +208,7 @@ Assigns a definition to a variable.
 
 Local variables and definitions are available only until the end of the file that defines them,
 and are replaced before global variables and definitions.
-    
+
 ```cpp
 #set! GLOBAL_VARIABLE = The definition of a global variable
 #set LOCAL_VARIABLE = The definition of a local variable
@@ -222,7 +222,7 @@ and are replaced before global variables and definitions.
 #### \#unset[*!] variable
 
 Removes a variable.
-        
+
 ```cpp
 #unset! MY_GLOBAL_VARIABLE
 #unset MY_LOCAL_VARIABLE
@@ -263,9 +263,9 @@ Executes a conditional block.
 ```
 
 #### \#while boolean_expression<br/>\#end
-  
+
 Repeats a conditional block
-  
+
 ```cpp
 #set FACTOR = 3
 #set COUNT = 10
@@ -302,35 +302,35 @@ Aborts preprocessing.
 ```cpp
 #define! MakeStack
     #get _ELEMENT_
-    
+
     #set _ELEMENT_STACK_ = @_Element_@_STACK
     #set _Element_ := "_ELEMENT_".toPascalCase()
     #set _ElementArray_ = @_Element_@Array
-    
+
     type _ELEMENT_STACK_ struct
     {
         _ElementArray_ [] * _Element_;
     }
-    
+
     func ( self * _ELEMENT_STACK_ ) Push@_Element_@(
         element * _Element_
         )
     {
         _ElementArray_ = append( _ElementArray_, element )
     }
-    
+
     func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
         ) * _ELEMENT_
     {
         var element * _ELEMENT_;
-        
+
         element = _ElementArray_[ len( _ElementArray_ ) - 1 ];
-        
+
         _ElementArray_ = _ElementArray_[ : len( _ElementArray_ ) - 1 ];
-        
-        return element; 
+
+        return element;
     }
-    
+
     #set! STACK[ _Element_ ] @= _ELEMENT_STACK_
 #end
 
@@ -368,12 +368,12 @@ func ( self * _ELEMENT_STACK_ ) Pop@_Element_@(
     ) * _ELEMENT_
 {
     var element * _ELEMENT_;
-    
+
     element = _ElementArray_[ len( _ElementArray_ ) - 1 ];
-    
+
     _ElementArray_ = _ElementArray_[ : len( _ElementArray_ ) - 1 ];
-    
-    return element; 
+
+    return element;
 }
 
 #set! STACK[ _Element_ ] @= _ELEMENT_STACK_
@@ -422,7 +422,7 @@ func GetResult(
     {
         result = 0;
     }
-    
+
     return;
 }
 
@@ -439,7 +439,7 @@ func GetResult( first_integer int, second_integer int, third_integer int, fourth
 
 ## Installation
 
-Install the [DMD 2 compiler](https://dlang.org/download.html).
+Install the [DMD 2 compiler](https://dlang.org/download.html) (preferably the MinGW on Windows).
 
 Build the executable with the following command line :
 
@@ -449,13 +449,13 @@ dmd -m64 genesis.d
 
 ## Command line
 
-``` 
+```
 genesis [options] {input_extension} {output_extension}
-``` 
+```
 
 ### Options
 
-``` 
+```
 --input_filter "*" : only include files with names matching this filter (anything by default)
 --input_folder ./ : input folder (current folder by default)
 --output_folder = : output folder (same as input_folder by default)
@@ -464,7 +464,7 @@ genesis [options] {input_extension} {output_extension}
 --verbose : show the processing messages
 --debug : show the debugging messages
 --fatal : abort execution in case of an error
-``` 
+```
 
 ### Examples
 
