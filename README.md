@@ -439,7 +439,7 @@ func GetResult( first_integer int, second_integer int, third_integer int, fourth
 
 ## Installation
 
-Install the [DMD 2 compiler](https://dlang.org/download.html) (choosing the MinGW installation option on Windows).
+Install the [DMD 2 compiler](https://dlang.org/download.html) (choosing the MinGW setup option on Windows).
 
 Build the executable with the following command line :
 
