@@ -2916,7 +2916,7 @@ void ProcessFolder(
             )
         )
     {
-        ProcessFile( folder_entry.name() );
+        ProcessFile( folder_entry.name );
     }
 }
 
