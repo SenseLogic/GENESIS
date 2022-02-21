@@ -444,7 +444,7 @@ Install the [DMD 2 compiler](https://dlang.org/download.html) (using the MinGW s
 Build the executable with the following command line :
 
 ```bash
-dmd -O -inline -m64 genesis.d
+dmd -O -m64 genesis.d
 ```
 
 ## Command line
